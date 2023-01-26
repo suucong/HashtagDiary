@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvToday"
@@ -23,10 +23,44 @@
                 android:text="오늘은 nnnn년 nn월 nn일 입니다." />
 
             <LinearLayout
-                android:id="@+id/linearLayout_weather"
+                android:id="@+id/linearLayout_sleep"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSleep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="오늘 잠은 편히 잤나요?"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <RadioGroup
+                    android:id="@+id/rgSleep"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rdobtnSleepGood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile" />
+
+                    <RadioButton
+                        android:id="@+id/rdobtnSleepBad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout_weather"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tvWeather"
@@ -113,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tvMood"
@@ -122,77 +156,77 @@
                     android:text="오늘의 기분은 어땠나요?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                        <CheckBox
-                            android:id="@+id/imgbtnHappy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toTopOf="@+id/imgbtnGloomy"
-                            app:layout_constraintEnd_toStartOf="@+id/imgbtnComfort"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <CheckBox
+                        android:id="@+id/imgbtnHappy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/imgbtnGloomy"
+                        app:layout_constraintEnd_toStartOf="@+id/imgbtnComfort"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <CheckBox
-                            android:id="@+id/imgbtnComfort"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toTopOf="@+id/imgbtnLonely"
-                            app:layout_constraintEnd_toStartOf="@+id/imgbtnLethargic"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/imgbtnHappy"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <CheckBox
+                        android:id="@+id/imgbtnComfort"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/imgbtnLonely"
+                        app:layout_constraintEnd_toStartOf="@+id/imgbtnLethargic"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imgbtnHappy"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <CheckBox
-                            android:id="@+id/imgbtnLethargic"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toTopOf="@+id/imgbtnDontknow"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/imgbtnComfort"
-                            app:layout_constraintTop_toTopOf="parent" />
+                    <CheckBox
+                        android:id="@+id/imgbtnLethargic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/imgbtnDontknow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imgbtnComfort"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                        <CheckBox
-                            android:id="@+id/imgbtnGloomy"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imgbtnLonely"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/imgbtnHappy" />
+                    <CheckBox
+                        android:id="@+id/imgbtnGloomy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imgbtnLonely"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imgbtnHappy" />
 
-                        <CheckBox
-                            android:id="@+id/imgbtnLonely"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/imgbtnDontknow"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/imgbtnGloomy"
-                            app:layout_constraintTop_toBottomOf="@+id/imgbtnComfort" />
+                    <CheckBox
+                        android:id="@+id/imgbtnLonely"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imgbtnDontknow"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imgbtnGloomy"
+                        app:layout_constraintTop_toBottomOf="@+id/imgbtnComfort" />
 
-                        <CheckBox
-                            android:id="@+id/imgbtnDontknow"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/examplefile"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.5"
-                            app:layout_constraintStart_toEndOf="@+id/imgbtnLonely"
-                            app:layout_constraintTop_toBottomOf="@+id/imgbtnLethargic" />
+                    <CheckBox
+                        android:id="@+id/imgbtnDontknow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imgbtnLonely"
+                        app:layout_constraintTop_toBottomOf="@+id/imgbtnLethargic" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
@@ -200,7 +234,8 @@
                 android:id="@+id/linearLayout_food"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -274,7 +309,8 @@
                 android:id="@+id/linearLayout_meet"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tvMeetYN"
@@ -305,9 +341,9 @@
                 <LinearLayout
                     android:id="@+id/linearLayout_meetDetail"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <EditText
                         android:id="@+id/tvMeetWho"
@@ -334,7 +370,8 @@
                 android:id="@+id/btnResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="완료" />
+                android:text="완료"
+                android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
