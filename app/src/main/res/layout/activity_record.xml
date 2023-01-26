@@ -74,70 +74,70 @@
                     android:layout_height="match_parent">
 
                     <CheckBox
-                        android:id="@+id/imgbtnSunny"
+                        android:id="@+id/chkbxSunny"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnRain"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnBetween"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxRain"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxBetween"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnBetween"
+                        android:id="@+id/chkbxBetween"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnSnow"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnCloudy"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxSnow"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxCloudy"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnSunny"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxSunny"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnCloudy"
+                        android:id="@+id/chkbxCloudy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnForgot"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxForgot"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnBetween"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxBetween"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnRain"
+                        android:id="@+id/chkbxRain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnSnow"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxSnow"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnSunny" />
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxSunny" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnSnow"
+                        android:id="@+id/chkbxSnow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnForgot"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxForgot"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnRain"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnBetween" />
+                        app:layout_constraintStart_toEndOf="@+id/chkbxRain"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxBetween" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnForgot"
+                        android:id="@+id/chkbxForgot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnSnow"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnCloudy" />
+                        app:layout_constraintStart_toEndOf="@+id/chkbxSnow"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxCloudy" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
@@ -161,70 +161,70 @@
                     android:layout_height="match_parent">
 
                     <CheckBox
-                        android:id="@+id/imgbtnHappy"
+                        android:id="@+id/chkbxHappy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnGloomy"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnComfort"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxGloomy"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxComfort"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnComfort"
+                        android:id="@+id/chkbxComfort"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnLonely"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnLethargic"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxLonely"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxLethargic"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnHappy"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxHappy"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnLethargic"
+                        android:id="@+id/chkbxLethargic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
-                        app:layout_constraintBottom_toTopOf="@+id/imgbtnDontknow"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxDontknow"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnComfort"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxComfort"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnGloomy"
+                        android:id="@+id/chkbxGloomy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnLonely"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxLonely"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnHappy" />
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxHappy" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnLonely"
+                        android:id="@+id/chkbxLonely"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imgbtnDontknow"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxDontknow"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnGloomy"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnComfort" />
+                        app:layout_constraintStart_toEndOf="@+id/chkbxGloomy"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxComfort" />
 
                     <CheckBox
-                        android:id="@+id/imgbtnDontknow"
+                        android:id="@+id/chkbxDontknow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:button="@drawable/examplefile"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/imgbtnLonely"
-                        app:layout_constraintTop_toBottomOf="@+id/imgbtnLethargic" />
+                        app:layout_constraintStart_toEndOf="@+id/chkbxLonely"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxLethargic" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

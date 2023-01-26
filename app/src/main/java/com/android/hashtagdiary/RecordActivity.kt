@@ -1,14 +1,18 @@
 package com.android.hashtagdiary
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import java.time.LocalDate
@@ -16,6 +20,7 @@ import java.time.format.DateTimeFormatter
 
 class RecordActivity : AppCompatActivity() {
 
+    // layout
     lateinit var ll_sleep : LinearLayout
     lateinit var ll_weather : LinearLayout
     lateinit var ll_mood : LinearLayout
@@ -26,9 +31,38 @@ class RecordActivity : AppCompatActivity() {
     lateinit var rg_meet : RadioGroup
 
     lateinit var tvToday : TextView
+    lateinit var edtFood : EditText
     lateinit var btnNext : Button
     lateinit var btnResult : Button
 
+    // weather
+    lateinit var chkbxSunny : CheckBox
+    lateinit var chkbxBetween : CheckBox
+    lateinit var chkbxCloudy : CheckBox
+    lateinit var chkbxRain : CheckBox
+    lateinit var chkbxSnow : CheckBox
+    lateinit var chkbxForgot : CheckBox
+
+    // mood
+    lateinit var chkbxHappy : CheckBox
+    lateinit var chkbxComfort : CheckBox
+    lateinit var chkbxLethargic : CheckBox
+    lateinit var chkbxGloomy : CheckBox
+    lateinit var chkbxLonely : CheckBox
+    lateinit var chkbxDontknow : CheckBox
+
+    // sleep
+    lateinit var rdobtnSleepGood : RadioButton
+    lateinit var rdobtnSleepBad : RadioButton
+
+    // food
+    lateinit var rdobtnBest : RadioButton
+    lateinit var rdobtnGood : RadioButton
+    lateinit var rdobtnSoso : RadioButton
+    lateinit var rdobtnBad : RadioButton
+    lateinit var rdobtnWorst : RadioButton
+
+    // meet
     lateinit var rdobtnMeetYes : RadioButton
     lateinit var rdobtnMeetNo : RadioButton
 
@@ -47,8 +81,38 @@ class RecordActivity : AppCompatActivity() {
         rg_meet = findViewById(R.id.rgMeet)
 
         tvToday = findViewById(R.id.tvToday)
+        edtFood = findViewById(R.id.edtFood)
         btnNext = findViewById(R.id.btnNext)
         btnResult = findViewById(R.id.btnResult)
+
+        // weather
+        chkbxSunny = findViewById(R.id.chkbxSunny)
+        chkbxBetween = findViewById(R.id.chkbxBetween)
+        chkbxCloudy = findViewById(R.id.chkbxCloudy)
+        chkbxRain = findViewById(R.id.chkbxRain)
+        chkbxSnow = findViewById(R.id.chkbxSnow)
+        chkbxForgot = findViewById(R.id.chkbxForgot)
+
+        // mood
+        chkbxHappy = findViewById(R.id.chkbxHappy)
+        chkbxComfort = findViewById(R.id.chkbxComfort)
+        chkbxLethargic = findViewById(R.id.chkbxLethargic)
+        chkbxGloomy = findViewById(R.id.chkbxGloomy)
+        chkbxLonely = findViewById(R.id.chkbxLonely)
+        chkbxDontknow = findViewById(R.id.chkbxDontknow)
+
+        // sleep
+        rdobtnSleepGood = findViewById(R.id.rdobtnSleepGood)
+        rdobtnSleepBad = findViewById(R.id.rdobtnSleepBad)
+
+        // food
+        rdobtnBest = findViewById(R.id.rdobtnBest)
+        rdobtnGood = findViewById(R.id.rdobtnGood)
+        rdobtnSoso = findViewById(R.id.rdobtnSoso)
+        rdobtnBad= findViewById(R.id.rdobtnBad)
+        rdobtnWorst= findViewById(R.id.rdobtnWorst)
+
+        // meet
         rdobtnMeetYes = findViewById(R.id.rdobtnMeetYes)
         rdobtnMeetNo = findViewById(R.id.rdobtnMeetNo)
 
@@ -82,7 +146,74 @@ class RecordActivity : AppCompatActivity() {
         }
 
         btnResult.setOnClickListener {
+            var intentResult = Intent(this, ResultActivity::class.java)
+            if ((rdobtnSleepGood.isChecked || rdobtnSleepBad.isChecked) == false) {
+                Toast.makeText(this, "편안한 잠을 잤는지 선택하세요", Toast.LENGTH_SHORT).show()
+            }
+            else if ((chkbxSunny.isChecked || chkbxBetween.isChecked || chkbxCloudy.isChecked
+                        || chkbxRain.isChecked || chkbxSnow.isChecked || chkbxForgot.isChecked) == false) {
+                Toast.makeText(this, "오늘의 날씨를 선택하세요", Toast.LENGTH_SHORT).show()
+            }
+            else if ((chkbxHappy.isChecked || chkbxComfort.isChecked || chkbxLethargic.isChecked
+                        || chkbxGloomy.isChecked || chkbxLonely.isChecked || chkbxDontknow.isChecked) == false) {
+                Toast.makeText(this, "오늘의 기분을 선택하세요", Toast.LENGTH_SHORT).show()
+            }
+            else if ((rdobtnBest.isChecked || rdobtnGood.isChecked || rdobtnSoso.isChecked
+                        || rdobtnBad.isChecked || rdobtnWorst.isChecked) == false) {
+                Toast.makeText(this, "오늘 먹은 음식이 어땠는지 선택하세요", Toast.LENGTH_SHORT).show()
+            }
+            else if ((rdobtnMeetYes.isChecked || rdobtnMeetNo.isChecked) == false) {
+                Toast.makeText(this, "오늘 만남이 있었는지 선택하세요", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                if (rdobtnSleepGood.isChecked) {
+                    intentResult.putExtra("sleep" , "잠을 잘 잔 것")
+                }
+                else {
+                    intentResult.putExtra("sleep", "잠을 잘 자지 못한 것")
+                }
+                if (chkbxSunny.isChecked) {
+                    intentResult.putExtra("weather1", "맑음")
+                }
+                if (chkbxBetween.isChecked) {
+                    intentResult.putExtra("weather2", "약간 흐림")
+                }
+                if (chkbxCloudy.isChecked) {
+                    intentResult.putExtra("weather3", "흐림")
+                }
+                if (chkbxRain.isChecked) {
+                    intentResult.putExtra("weather4", "비")
+                }
+                if (chkbxSnow.isChecked) {
+                    intentResult.putExtra("weather5", "눈")
+                }
+                if (chkbxForgot.isChecked) {
+                    intentResult.putExtra("weather6", "기억 안남")
+                }
+                if (chkbxHappy.isChecked) {
+                    intentResult.putExtra("mood1", "행복")
+                }
+                if (chkbxComfort.isChecked) {
+                    intentResult.putExtra("mood2", "편안")
+                }
+                if (chkbxLethargic.isChecked) {
+                    intentResult.putExtra("mood3", "무기력")
+                }
+                if (chkbxGloomy.isChecked) {
+                    intentResult.putExtra("mood4", "우울")
+                }
+                if (chkbxLonely.isChecked) {
+                    intentResult.putExtra("mood5", "쓸쓸")
+                }
+                if (chkbxDontknow.isChecked) {
+                    intentResult.putExtra("mood6", "모르겠음")
+                }
+                if (edtFood.text.equals())
+                    intentResult.putExtra("food", edtFood.text)
 
+            }
+
+         //   startActivity(intentResult)
         }
     }
 }
