@@ -346,13 +346,13 @@
                     android:visibility="gone">
 
                     <EditText
-                        android:id="@+id/tvMeetWho"
+                        android:id="@+id/edtMeetWho"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="누구와 만났나요?" />
 
                     <EditText
-                        android:id="@+id/tvMeetWhere"
+                        android:id="@+id/edtMeetWhere"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="어디서 만났나요?" />

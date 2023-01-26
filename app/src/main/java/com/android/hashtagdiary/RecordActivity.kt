@@ -32,6 +32,8 @@ class RecordActivity : AppCompatActivity() {
 
     lateinit var tvToday : TextView
     lateinit var edtFood : EditText
+    lateinit var edtMeetWho : EditText
+    lateinit var edtMeetWhere : EditText
     lateinit var btnNext : Button
     lateinit var btnResult : Button
 
@@ -82,6 +84,8 @@ class RecordActivity : AppCompatActivity() {
 
         tvToday = findViewById(R.id.tvToday)
         edtFood = findViewById(R.id.edtFood)
+        edtMeetWho = findViewById(R.id.edtMeetWho)
+        edtMeetWhere = findViewById(R.id.edtMeetWhere)
         btnNext = findViewById(R.id.btnNext)
         btnResult = findViewById(R.id.btnResult)
 
@@ -169,7 +173,7 @@ class RecordActivity : AppCompatActivity() {
                 if (rdobtnSleepGood.isChecked) {
                     intentResult.putExtra("sleep" , "잠을 잘 잔 것")
                 }
-                else {
+                else if (rdobtnSleepBad.isChecked) {
                     intentResult.putExtra("sleep", "잠을 잘 자지 못한 것")
                 }
                 if (chkbxSunny.isChecked) {
@@ -208,9 +212,36 @@ class RecordActivity : AppCompatActivity() {
                 if (chkbxDontknow.isChecked) {
                     intentResult.putExtra("mood6", "모르겠음")
                 }
-                if (edtFood.text.equals())
-                    intentResult.putExtra("food", edtFood.text)
-
+                if (edtFood.text.equals("") == false) {
+                    intentResult.putExtra("edtfood", edtFood.text)
+                }
+                if (rdobtnBest.isChecked) {
+                    intentResult.putExtra("food", "매일 먹고 싶은")
+                }
+                else if (rdobtnGood.isChecked) {
+                    intentResult.putExtra("food", "그럭저럭 맜있는")
+                }
+                else if (rdobtnSoso.isChecked) {
+                    intentResult.putExtra("food", "무난한")
+                }
+                else if (rdobtnBad.isChecked) {
+                    intentResult.putExtra("food", "맛없는")
+                }
+                else if (rdobtnWorst.isChecked) {
+                    intentResult.putExtra("food", "다신 안먹고 싶은")
+                }
+                if (rdobtnMeetYes.isChecked) {
+                    intentResult.putExtra("meet", "약속이 있는")
+                    if (edtMeetWho.equals("") == false) {
+                        intentResult.putExtra("meetwho", edtMeetWho.text)
+                    }
+                    if (edtMeetWhere.equals("") == false) {
+                        intentResult.putExtra("meetwhere", edtMeetWhere.text)
+                    }
+                }
+                else if (rdobtnMeetNo.isChecked) {
+                    intentResult.putExtra("meet", "약속이 없는")
+                }
             }
 
          //   startActivity(intentResult)
