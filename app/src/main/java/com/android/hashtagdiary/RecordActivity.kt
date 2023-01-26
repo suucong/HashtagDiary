@@ -16,6 +16,7 @@ import java.time.format.DateTimeFormatter
 
 class RecordActivity : AppCompatActivity() {
 
+    lateinit var ll_sleep : LinearLayout
     lateinit var ll_weather : LinearLayout
     lateinit var ll_mood : LinearLayout
     lateinit var ll_food : LinearLayout
@@ -26,6 +27,8 @@ class RecordActivity : AppCompatActivity() {
 
     lateinit var tvToday : TextView
     lateinit var btnNext : Button
+    lateinit var btnResult : Button
+
     lateinit var rdobtnMeetYes : RadioButton
     lateinit var rdobtnMeetNo : RadioButton
 
@@ -34,6 +37,7 @@ class RecordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
 
+        ll_sleep = findViewById(R.id.linearLayout_sleep)
         ll_weather = findViewById(R.id.linearLayout_weather)
         ll_mood = findViewById(R.id.linearLayout_mood)
         ll_food = findViewById(R.id.linearLayout_food)
@@ -44,6 +48,7 @@ class RecordActivity : AppCompatActivity() {
 
         tvToday = findViewById(R.id.tvToday)
         btnNext = findViewById(R.id.btnNext)
+        btnResult = findViewById(R.id.btnResult)
         rdobtnMeetYes = findViewById(R.id.rdobtnMeetYes)
         rdobtnMeetNo = findViewById(R.id.rdobtnMeetNo)
 
@@ -51,7 +56,10 @@ class RecordActivity : AppCompatActivity() {
         tvToday.text = "오늘은 $today 입니다."
 
         btnNext.setOnClickListener {
-            if (ll_mood.isVisible == false && ll_food.isVisible == false && ll_meet.isVisible == false) {
+            if (ll_weather.isVisible == false && ll_mood.isVisible == false && ll_food.isVisible == false && ll_meet.isVisible == false) {
+                ll_weather.setVisibility(View.VISIBLE)
+            }
+            else if (ll_mood.isVisible == false && ll_food.isVisible == false && ll_meet.isVisible == false) {
                 ll_mood.setVisibility(View.VISIBLE)
             }
             else if (ll_food.isVisible == false && ll_meet.isVisible == false) {
@@ -59,17 +67,22 @@ class RecordActivity : AppCompatActivity() {
             }
             else {
                 ll_meet.setVisibility(View.VISIBLE)
+                btnNext.setVisibility(View.GONE)
+                btnResult.setVisibility(View.VISIBLE)
             }
         }
 
-//        while (true) {
-            if (rdobtnMeetYes.isChecked) {
+        rdobtnMeetYes.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked == true) {
                 ll_meet_detail.setVisibility(View.VISIBLE)
             }
-            if (rdobtnMeetNo.isChecked) {
+            else {
                 ll_meet_detail.setVisibility(View.GONE)
             }
-  //      }
+        }
 
+        btnResult.setOnClickListener {
+
+        }
     }
 }
