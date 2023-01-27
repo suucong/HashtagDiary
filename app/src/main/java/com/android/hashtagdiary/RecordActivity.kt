@@ -397,7 +397,7 @@ class RecordActivity : AppCompatActivity() {
                     intentResult.putExtra("weather", "눈")
                 }
                 else if (chkbxForgot.isChecked) {
-                    intentResult.putExtra("weather", "기억 안남")
+                    intentResult.putExtra("weather", "날씨_기억_안남")
                 }
                 else {}
 
@@ -423,44 +423,44 @@ class RecordActivity : AppCompatActivity() {
                 else {}
 
                 // 음식 종류
-                if (edtFood.text.length > 0) {
-                    intentResult.putExtra("edtfood", edtFood.text)
+                if (edtFood.text.length != 0) {
+                    intentResult.putExtra("edtfood", edtFood.text.toString())
                 }
                 else {}
 
                 //음식
                 if (chkbxBest.isChecked) {
-                    intentResult.putExtra("food", "매일 먹고 싶은")
+                    intentResult.putExtra("food", "매일_먹고싶음")
                 }
                 else if (chkbxGood.isChecked) {
-                    intentResult.putExtra("food", "그럭저럭 맜있는")
+                    intentResult.putExtra("food", "맜있음")
                 }
                 else if (chkbxSoso.isChecked) {
-                    intentResult.putExtra("food", "무난한")
+                    intentResult.putExtra("food", "무난함")
                 }
                 else if (chkbxBad.isChecked) {
-                    intentResult.putExtra("food", "맛없는")
+                    intentResult.putExtra("food", "맛없음")
                 }
                 else if (chkbxWorst.isChecked) {
-                    intentResult.putExtra("food", "다신 안먹고 싶은")
+                    intentResult.putExtra("food", "다신_안먹고싶음")
                 }
                 else if (chkbxForgotfood.isChecked) {
-                    intentResult.putExtra("food", "기억이 나지 않는")
+                    intentResult.putExtra("food", "무슨맛인지_기억_안남")
                 }
                 else {}
 
                 // 만남
                 if (rdobtnMeetYes.isChecked) {
-                    intentResult.putExtra("meet", "약속이 있는")
-                    if (edtMeetWho.length() > 0) {
-                        intentResult.putExtra("meetwho", edtMeetWho.text)
+                    intentResult.putExtra("meet", "약속있음")
+                    if (edtMeetWho.length() != 0) {
+                        intentResult.putExtra("meetwho", edtMeetWho.text.toString())
                     }
-                    if (edtMeetWhere.length() > 0) {
-                        intentResult.putExtra("meetwhere", edtMeetWhere.text)
+                    if (edtMeetWhere.length() != 0) {
+                        intentResult.putExtra("meetwhere", edtMeetWhere.text.toString())
                     }
                 }
                 else if (rdobtnMeetNo.isChecked) {
-                    intentResult.putExtra("meet", "약속이 없는")
+                    intentResult.putExtra("meet", "약속없음")
                 }
                 else {}
 

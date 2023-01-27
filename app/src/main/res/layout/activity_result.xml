@@ -26,13 +26,25 @@
                 android:id="@+id/tvLine1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="오늘은 nnnn년 nn월 nn일" />
+                android:hint="오늘은 yyyy년 MM월 dd일," />
 
             <TextView
                 android:id="@+id/tvLine2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="sleep" />
+
+            <TextView
+                android:id="@+id/tvLine3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="weather" />
+
+            <TextView
+                android:id="@+id/tvHashTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hashtag" />
         </LinearLayout>
     </ScrollView>
 
