@@ -60,23 +60,25 @@ class ResultActivity : AppCompatActivity() {
 
         if (sleep == "잘잤음") {
             tvLine2.text = "잠을 잘 잤기 때문에, 일어났을 때 꽤 개운했다."
-        }
-        else if (sleep == "못잤음") {
+        } else if (sleep == "못잤음") {
             tvLine2.text = "잠을 잘 못잤기 때문에, 찌부둥한 상태로 일어나게 되었다."
         }
 
         if (meet == "약속있음") {
-            tvHashtag.text = "#$sleep #$weather #$mood #${edtFood}_${food} #${meetWhere}_with_${meetWho}"
-        }
-        else if (meet == "약속없음") {
+            tvHashtag.text =
+                "#$sleep #$weather #$mood #${edtFood}_${food} #${meetWhere}_with_${meetWho}"
+        } else if (meet == "약속없음") {
             tvHashtag.text = "#$sleep #$weather #$mood #${edtFood}_${food}"
         }
 
         mapView = MapView(this)
         map_View.addView(mapView)
 
-        if(ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        )
 
         // 권한이 허용되지 않음
             if(ActivityCompat.shouldShowRequestPermissionRationale(this,
