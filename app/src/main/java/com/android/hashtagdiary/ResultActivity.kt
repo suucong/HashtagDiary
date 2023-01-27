@@ -19,7 +19,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_result.*
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapPoint
