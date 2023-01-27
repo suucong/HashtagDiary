@@ -53,16 +53,17 @@ class RecordActivity : AppCompatActivity() {
     lateinit var chkbxLonely : CheckBox
     lateinit var chkbxDontknow : CheckBox
 
+    // food
+    lateinit var chkbxBest : CheckBox
+    lateinit var chkbxGood : CheckBox
+    lateinit var chkbxSoso : CheckBox
+    lateinit var chkbxBad : CheckBox
+    lateinit var chkbxWorst : CheckBox
+    lateinit var chkbxForgotfood : CheckBox
+
     // sleep
     lateinit var rdobtnSleepGood : RadioButton
     lateinit var rdobtnSleepBad : RadioButton
-
-    // food
-    lateinit var rdobtnBest : RadioButton
-    lateinit var rdobtnGood : RadioButton
-    lateinit var rdobtnSoso : RadioButton
-    lateinit var rdobtnBad : RadioButton
-    lateinit var rdobtnWorst : RadioButton
 
     // meet
     lateinit var rdobtnMeetYes : RadioButton
@@ -105,16 +106,17 @@ class RecordActivity : AppCompatActivity() {
         chkbxLonely = findViewById(R.id.chkbxLonely)
         chkbxDontknow = findViewById(R.id.chkbxDontknow)
 
+        // food
+        chkbxBest = findViewById(R.id.chkbxBest)
+        chkbxGood = findViewById(R.id.chkbxGood)
+        chkbxSoso = findViewById(R.id.chkbxSoso)
+        chkbxBad= findViewById(R.id.chkbxBad)
+        chkbxWorst= findViewById(R.id.chkbxWorst)
+        chkbxForgotfood = findViewById(R.id.chkbxForgotfood)
+
         // sleep
         rdobtnSleepGood = findViewById(R.id.rdobtnSleepGood)
         rdobtnSleepBad = findViewById(R.id.rdobtnSleepBad)
-
-        // food
-        rdobtnBest = findViewById(R.id.rdobtnBest)
-        rdobtnGood = findViewById(R.id.rdobtnGood)
-        rdobtnSoso = findViewById(R.id.rdobtnSoso)
-        rdobtnBad= findViewById(R.id.rdobtnBad)
-        rdobtnWorst= findViewById(R.id.rdobtnWorst)
 
         // meet
         rdobtnMeetYes = findViewById(R.id.rdobtnMeetYes)
@@ -140,6 +142,128 @@ class RecordActivity : AppCompatActivity() {
             }
         }
 
+        // 날씨 하나만 선택
+        chkbxSunny.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxSunny.isChecked) {
+                chkbxBetween.setChecked(false)
+                chkbxCloudy.setChecked(false)
+                chkbxRain.setChecked(false)
+                chkbxSnow.setChecked(false)
+                chkbxForgot.setChecked(false)
+            }
+        }
+
+        chkbxBetween.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxBetween.isChecked) {
+                chkbxSunny.setChecked(false)
+                chkbxCloudy.setChecked(false)
+                chkbxRain.setChecked(false)
+                chkbxSnow.setChecked(false)
+                chkbxForgot.setChecked(false)
+            }
+        }
+
+        chkbxCloudy.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxCloudy.isChecked) {
+                chkbxSunny.setChecked(false)
+                chkbxBetween.setChecked(false)
+                chkbxRain.setChecked(false)
+                chkbxSnow.setChecked(false)
+                chkbxForgot.setChecked(false)
+            }
+        }
+
+        chkbxRain.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxRain.isChecked) {
+                chkbxSunny.setChecked(false)
+                chkbxBetween.setChecked(false)
+                chkbxCloudy.setChecked(false)
+                chkbxSnow.setChecked(false)
+                chkbxForgot.setChecked(false)
+            }
+        }
+
+        chkbxSnow.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxSnow.isChecked) {
+                chkbxSunny.setChecked(false)
+                chkbxBetween.setChecked(false)
+                chkbxCloudy.setChecked(false)
+                chkbxRain.setChecked(false)
+                chkbxForgot.setChecked(false)
+            }
+        }
+
+        chkbxForgot.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxForgot.isChecked) {
+                chkbxSunny.setChecked(false)
+                chkbxBetween.setChecked(false)
+                chkbxCloudy.setChecked(false)
+                chkbxRain.setChecked(false)
+                chkbxSnow.setChecked(false)
+            }
+        }
+
+        // 기분 하나만 선택
+        chkbxHappy.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxHappy.isChecked) {
+                chkbxComfort.setChecked(false)
+                chkbxLethargic.setChecked(false)
+                chkbxGloomy.setChecked(false)
+                chkbxLonely.setChecked(false)
+                chkbxDontknow.setChecked(false)
+            }
+        }
+
+        chkbxComfort.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxComfort.isChecked) {
+                chkbxHappy.setChecked(false)
+                chkbxLethargic.setChecked(false)
+                chkbxGloomy.setChecked(false)
+                chkbxLonely.setChecked(false)
+                chkbxDontknow.setChecked(false)
+            }
+        }
+
+        chkbxLethargic.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxLethargic.isChecked) {
+                chkbxHappy.setChecked(false)
+                chkbxComfort.setChecked(false)
+                chkbxGloomy.setChecked(false)
+                chkbxLonely.setChecked(false)
+                chkbxDontknow.setChecked(false)
+            }
+        }
+
+        chkbxGloomy.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxGloomy.isChecked) {
+                chkbxHappy.setChecked(false)
+                chkbxComfort.setChecked(false)
+                chkbxLethargic.setChecked(false)
+                chkbxLonely.setChecked(false)
+                chkbxDontknow.setChecked(false)
+            }
+        }
+
+        chkbxLonely.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxLonely.isChecked) {
+                chkbxHappy.setChecked(false)
+                chkbxComfort.setChecked(false)
+                chkbxLethargic.setChecked(false)
+                chkbxGloomy.setChecked(false)
+                chkbxDontknow.setChecked(false)
+            }
+        }
+
+        chkbxDontknow.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxDontknow.isChecked) {
+                chkbxHappy.setChecked(false)
+                chkbxComfort.setChecked(false)
+                chkbxLethargic.setChecked(false)
+                chkbxGloomy.setChecked(false)
+                chkbxLonely.setChecked(false)
+            }
+        }
+
         rdobtnMeetYes.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked == true) {
                 ll_meet_detail.setVisibility(View.VISIBLE)
@@ -149,8 +273,71 @@ class RecordActivity : AppCompatActivity() {
             }
         }
 
+        // 음식 하나만 선택
+        chkbxBest.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxBest.isChecked) {
+                chkbxGood.setChecked(false)
+                chkbxSoso.setChecked(false)
+                chkbxBad.setChecked(false)
+                chkbxWorst.setChecked(false)
+                chkbxForgotfood.setChecked(false)
+            }
+        }
+
+        chkbxGood.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxGood.isChecked) {
+                chkbxBest.setChecked(false)
+                chkbxSoso.setChecked(false)
+                chkbxBad.setChecked(false)
+                chkbxWorst.setChecked(false)
+                chkbxForgotfood.setChecked(false)
+            }
+        }
+
+        chkbxSoso.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxSoso.isChecked) {
+                chkbxBest.setChecked(false)
+                chkbxGood.setChecked(false)
+                chkbxBad.setChecked(false)
+                chkbxWorst.setChecked(false)
+                chkbxForgotfood.setChecked(false)
+            }
+        }
+
+        chkbxBad.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxBad.isChecked) {
+                chkbxBest.setChecked(false)
+                chkbxGood.setChecked(false)
+                chkbxSoso.setChecked(false)
+                chkbxWorst.setChecked(false)
+                chkbxForgotfood.setChecked(false)
+            }
+        }
+
+        chkbxWorst.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxWorst.isChecked) {
+                chkbxBest.setChecked(false)
+                chkbxGood.setChecked(false)
+                chkbxSoso.setChecked(false)
+                chkbxBad.setChecked(false)
+                chkbxForgotfood.setChecked(false)
+            }
+        }
+
+        chkbxForgotfood.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxForgotfood.isChecked) {
+                chkbxBest.setChecked(false)
+                chkbxGood.setChecked(false)
+                chkbxSoso.setChecked(false)
+                chkbxBad.setChecked(false)
+                chkbxWorst.setChecked(false)
+            }
+        }
+
+        // 완료 버튼 클릭 이벤트
         btnResult.setOnClickListener {
             var intentResult = Intent(this, ResultActivity::class.java)
+            intentResult.putExtra("tvToday", today)
             if ((rdobtnSleepGood.isChecked || rdobtnSleepBad.isChecked) == false) {
                 Toast.makeText(this, "편안한 잠을 잤는지 선택하세요", Toast.LENGTH_SHORT).show()
             }
@@ -162,89 +349,123 @@ class RecordActivity : AppCompatActivity() {
                         || chkbxGloomy.isChecked || chkbxLonely.isChecked || chkbxDontknow.isChecked) == false) {
                 Toast.makeText(this, "오늘의 기분을 선택하세요", Toast.LENGTH_SHORT).show()
             }
-            else if ((rdobtnBest.isChecked || rdobtnGood.isChecked || rdobtnSoso.isChecked
-                        || rdobtnBad.isChecked || rdobtnWorst.isChecked) == false) {
+            else if (edtFood.length() == 0) {
+                Toast.makeText(this, "오늘 무슨 음식을 먹었는지 작성하세요", Toast.LENGTH_SHORT).show()
+            }
+            else if ((chkbxBest.isChecked || chkbxGood.isChecked || chkbxSoso.isChecked
+                        || chkbxBad.isChecked || chkbxWorst.isChecked || chkbxForgotfood.isChecked) == false) {
                 Toast.makeText(this, "오늘 먹은 음식이 어땠는지 선택하세요", Toast.LENGTH_SHORT).show()
             }
             else if ((rdobtnMeetYes.isChecked || rdobtnMeetNo.isChecked) == false) {
                 Toast.makeText(this, "오늘 만남이 있었는지 선택하세요", Toast.LENGTH_SHORT).show()
             }
+            else if (rdobtnMeetYes.isChecked) {
+                if (edtMeetWho.length() == 0 && edtMeetWhere.length() == 0) {
+                    Toast.makeText(this, "누구와 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtMeetWho.length() == 0) {
+                    Toast.makeText(this, "누구와 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
+                }
+                else if (edtMeetWhere.length() == 0) {
+                    Toast.makeText(this, "${edtMeetWho.text}와(과) 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
+                }
+            }
             else {
+                // 잠
                 if (rdobtnSleepGood.isChecked) {
                     intentResult.putExtra("sleep" , "잠을 잘 잔 것")
                 }
                 else if (rdobtnSleepBad.isChecked) {
                     intentResult.putExtra("sleep", "잠을 잘 자지 못한 것")
                 }
+                else {}
+
+                // 날씨
                 if (chkbxSunny.isChecked) {
-                    intentResult.putExtra("weather1", "맑음")
+                    intentResult.putExtra("weather", "맑음")
                 }
-                if (chkbxBetween.isChecked) {
-                    intentResult.putExtra("weather2", "약간 흐림")
+                else if (chkbxBetween.isChecked) {
+                    intentResult.putExtra("weather", "약간 흐림")
                 }
-                if (chkbxCloudy.isChecked) {
-                    intentResult.putExtra("weather3", "흐림")
+                else if (chkbxCloudy.isChecked) {
+                    intentResult.putExtra("weather", "흐림")
                 }
-                if (chkbxRain.isChecked) {
-                    intentResult.putExtra("weather4", "비")
+                else if (chkbxRain.isChecked) {
+                    intentResult.putExtra("weather", "비")
                 }
-                if (chkbxSnow.isChecked) {
-                    intentResult.putExtra("weather5", "눈")
+                else if (chkbxSnow.isChecked) {
+                    intentResult.putExtra("weather", "눈")
                 }
-                if (chkbxForgot.isChecked) {
-                    intentResult.putExtra("weather6", "기억 안남")
+                else if (chkbxForgot.isChecked) {
+                    intentResult.putExtra("weather", "기억 안남")
                 }
+                else {}
+
+                // 기분
                 if (chkbxHappy.isChecked) {
-                    intentResult.putExtra("mood1", "행복")
+                    intentResult.putExtra("mood", "행복")
                 }
-                if (chkbxComfort.isChecked) {
-                    intentResult.putExtra("mood2", "편안")
+                else if (chkbxComfort.isChecked) {
+                    intentResult.putExtra("mood", "편안")
                 }
-                if (chkbxLethargic.isChecked) {
-                    intentResult.putExtra("mood3", "무기력")
+                else if (chkbxLethargic.isChecked) {
+                    intentResult.putExtra("mood", "무기력")
                 }
-                if (chkbxGloomy.isChecked) {
-                    intentResult.putExtra("mood4", "우울")
+                else if (chkbxGloomy.isChecked) {
+                    intentResult.putExtra("mood", "우울")
                 }
-                if (chkbxLonely.isChecked) {
-                    intentResult.putExtra("mood5", "쓸쓸")
+                else if (chkbxLonely.isChecked) {
+                    intentResult.putExtra("mood", "쓸쓸")
                 }
-                if (chkbxDontknow.isChecked) {
-                    intentResult.putExtra("mood6", "모르겠음")
+                else if (chkbxDontknow.isChecked) {
+                    intentResult.putExtra("mood", "모르겠음")
                 }
-                if (edtFood.text.equals("") == false) {
+                else {}
+
+                // 음식 종류
+                if (edtFood.text.length > 0) {
                     intentResult.putExtra("edtfood", edtFood.text)
                 }
-                if (rdobtnBest.isChecked) {
+                else {}
+
+                //음식
+                if (chkbxBest.isChecked) {
                     intentResult.putExtra("food", "매일 먹고 싶은")
                 }
-                else if (rdobtnGood.isChecked) {
+                else if (chkbxGood.isChecked) {
                     intentResult.putExtra("food", "그럭저럭 맜있는")
                 }
-                else if (rdobtnSoso.isChecked) {
+                else if (chkbxSoso.isChecked) {
                     intentResult.putExtra("food", "무난한")
                 }
-                else if (rdobtnBad.isChecked) {
+                else if (chkbxBad.isChecked) {
                     intentResult.putExtra("food", "맛없는")
                 }
-                else if (rdobtnWorst.isChecked) {
+                else if (chkbxWorst.isChecked) {
                     intentResult.putExtra("food", "다신 안먹고 싶은")
                 }
+                else if (chkbxForgotfood.isChecked) {
+                    intentResult.putExtra("food", "기억이 나지 않는")
+                }
+                else {}
+
+                // 만남
                 if (rdobtnMeetYes.isChecked) {
                     intentResult.putExtra("meet", "약속이 있는")
-                    if (edtMeetWho.equals("") == false) {
+                    if (edtMeetWho.length() > 0) {
                         intentResult.putExtra("meetwho", edtMeetWho.text)
                     }
-                    if (edtMeetWhere.equals("") == false) {
+                    if (edtMeetWhere.length() > 0) {
                         intentResult.putExtra("meetwhere", edtMeetWhere.text)
                     }
                 }
                 else if (rdobtnMeetNo.isChecked) {
                     intentResult.putExtra("meet", "약속이 없는")
                 }
+                else {}
             }
 
-         //   startActivity(intentResult)
+            startActivity(intentResult)
         }
     }
 }
