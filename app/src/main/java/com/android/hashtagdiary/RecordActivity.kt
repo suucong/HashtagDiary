@@ -463,9 +463,9 @@ class RecordActivity : AppCompatActivity() {
                     intentResult.putExtra("meet", "약속이 없는")
                 }
                 else {}
-            }
 
-            startActivity(intentResult)
+                startActivity(intentResult)
+            }
         }
     }
 }

@@ -48,5 +48,6 @@
         </activity>
 <!--        카카오맵 네이티브 App Key-->
         <meta-data android:name="com.kakao.sdk.AppKey" android:value="f374fe9deeb91d4524f54374bfa310ff"/>
+
     </application>
 </manifest>
