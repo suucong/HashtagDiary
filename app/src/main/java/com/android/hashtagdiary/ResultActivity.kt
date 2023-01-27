@@ -16,7 +16,7 @@ class ResultActivity : AppCompatActivity() {
 
         val tvToday = intent.getStringExtra("tvToday")
 
-        tvDate.text = "오늘은 ${tvToday},"
+        tvDate.text = "오늘은 ${tvToday}"
 
     }
 }
