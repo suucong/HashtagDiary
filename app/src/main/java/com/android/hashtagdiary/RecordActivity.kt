@@ -359,17 +359,6 @@ class RecordActivity : AppCompatActivity() {
             else if ((rdobtnMeetYes.isChecked || rdobtnMeetNo.isChecked) == false) {
                 Toast.makeText(this, "오늘 만남이 있었는지 선택하세요", Toast.LENGTH_SHORT).show()
             }
-            else if (rdobtnMeetYes.isChecked) {
-                if (edtMeetWho.length() == 0 && edtMeetWhere.length() == 0) {
-                    Toast.makeText(this, "누구와 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
-                }
-                else if (edtMeetWho.length() == 0) {
-                    Toast.makeText(this, "누구와 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
-                }
-                else if (edtMeetWhere.length() == 0) {
-                    Toast.makeText(this, "${edtMeetWho.text}와(과) 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
-                }
-            }
             else {
                 // 잠
                 if (rdobtnSleepGood.isChecked) {
@@ -451,20 +440,29 @@ class RecordActivity : AppCompatActivity() {
 
                 // 만남
                 if (rdobtnMeetYes.isChecked) {
-                    intentResult.putExtra("meet", "약속있음")
-                    if (edtMeetWho.length() != 0) {
-                        intentResult.putExtra("meetwho", edtMeetWho.text.toString())
+                    if (edtMeetWho.length() == 0 && edtMeetWhere.length() == 0) {
+                        Toast.makeText(this, "누구와 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
                     }
-                    if (edtMeetWhere.length() != 0) {
-                        intentResult.putExtra("meetwhere", edtMeetWhere.text.toString())
+                    else if (edtMeetWho.length() == 0) {
+                        Toast.makeText(this, "누구와 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
+                    }
+                    else if (edtMeetWhere.length() == 0) {
+                        Toast.makeText(this, "${edtMeetWho.text}와(과) 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        intentResult.putExtra("meet", "약속있음")
+                        intentResult.putExtra("edtmeetwho", edtMeetWho.text.toString())
+                        intentResult.putExtra("edtmeetwhere", edtMeetWhere.text.toString())
+                        startActivity(intentResult)
                     }
                 }
                 else if (rdobtnMeetNo.isChecked) {
                     intentResult.putExtra("meet", "약속없음")
+                    startActivity(intentResult)
                 }
                 else {}
 
-                startActivity(intentResult)
+
             }
         }
     }
