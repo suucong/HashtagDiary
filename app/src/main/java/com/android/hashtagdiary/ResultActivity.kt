@@ -1,20 +1,13 @@
 package com.android.hashtagdiary
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
-import android.media.audiofx.BassBoost
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
-import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
@@ -44,6 +37,9 @@ class ResultActivity : AppCompatActivity() {
         tvLine2 = findViewById(R.id.tvLine2)
         tvLine3 = findViewById(R.id.tvLine3)
         tvHashtag = findViewById(R.id.tvHashTag)
+
+        var we = 0.0
+        var ky = 0.0
 
         val tvToday = intent.getStringExtra("tvToday")
         val sleep = intent.getStringExtra("sleep")
@@ -102,21 +98,22 @@ class ResultActivity : AppCompatActivity() {
             val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
             //위도 , 경도
-            val uLatitude = userNowLocation?.latitude
-            val uLongitude = userNowLocation?.longitude
-            val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
-
-            mapView.setMapCenterPoint(uNowPosition, true)
-            mapView.setZoomLevel(1, true)
-
-            // 현 위치에 마커 찍기
-            val marker = MapPOIItem()
-            marker.itemName = "현 위치"
-            marker.mapPoint =uNowPosition
-            marker.markerType = MapPOIItem.MarkerType.BluePin
-            marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-            mapView.addPOIItem(marker)
+            we = userNowLocation?.latitude!!
+            ky = userNowLocation?.longitude!!
         }
+
+        val uNowPosition = MapPoint.mapPointWithGeoCoord(we!!, ky!!)
+
+        mapView.setMapCenterPoint(uNowPosition, true)
+        mapView.setZoomLevel(1, true)
+
+        // 현 위치에 마커 찍기
+        val marker = MapPOIItem()
+        marker.itemName = "현 위치"
+        marker.mapPoint =uNowPosition
+        marker.markerType = MapPOIItem.MarkerType.BluePin
+        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+        mapView.addPOIItem(marker)
     }
 }
 
