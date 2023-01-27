@@ -265,43 +265,76 @@
 
                 </LinearLayout>
 
-                <RadioGroup
-                    android:id="@+id/rgFood"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
-                    <RadioButton
-                        android:id="@+id/rdobtnBest"
+                    <CheckBox
+                        android:id="@+id/chkbxBest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile" />
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxBad"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxGood"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <RadioButton
-                        android:id="@+id/rdobtnGood"
+                    <CheckBox
+                        android:id="@+id/chkbxGood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile" />
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxWorst"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxSoso"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxBest"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <RadioButton
-                        android:id="@+id/rdobtnSoso"
+                    <CheckBox
+                        android:id="@+id/chkbxSoso"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile" />
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxForgotfood"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxGood"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <RadioButton
-                        android:id="@+id/rdobtnBad"
+                    <CheckBox
+                        android:id="@+id/chkbxBad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile" />
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxWorst"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxBest" />
 
-                    <RadioButton
-                        android:id="@+id/rdobtnWorst"
+                    <CheckBox
+                        android:id="@+id/chkbxWorst"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile" />
-                </RadioGroup>
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxForgotfood"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxBad"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxGood" />
+
+                    <CheckBox
+                        android:id="@+id/chkbxForgotfood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/examplefile"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxWorst"
+                        app:layout_constraintTop_toBottomOf="@+id/chkbxSoso" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
