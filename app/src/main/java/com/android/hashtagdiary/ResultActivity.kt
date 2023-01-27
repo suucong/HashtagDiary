@@ -3,11 +3,15 @@ package com.android.hashtagdiary
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.database.sqlite.SQLiteDatabase
 import android.location.Location
 import android.location.LocationManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
@@ -15,9 +19,13 @@ import androidx.core.content.ContextCompat
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapPoint
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ResultActivity : AppCompatActivity() {
-    lateinit var tvDate: TextView
+
+    lateinit var dbManager : DBManager
+    lateinit var sqlitedb : SQLiteDatabase
 
     lateinit var tvLine1 : TextView // date
     lateinit var tvLine2 : TextView // sleep
@@ -31,10 +39,15 @@ class ResultActivity : AppCompatActivity() {
     lateinit var mapView: MapView
     private val ACCESS_FINE_LOCATION = 1000
 
+    lateinit var btnDiarytab : Button
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
         map_View = findViewById(R.id.map_View)
+
+        dbManager = DBManager(this, "diarybyday", null, 1)
 
         tvLine1 = findViewById(R.id.tvLine1)
         tvLine2 = findViewById(R.id.tvLine2)
@@ -43,6 +56,8 @@ class ResultActivity : AppCompatActivity() {
         tvLine5 = findViewById(R.id.tvLine5)
         tvLine6 = findViewById(R.id.tvLine6)
         tvHashtag = findViewById(R.id.tvHashTag)
+
+        btnDiarytab = findViewById(R.id.btnDiarytab)
 
         val tvToday = intent.getStringExtra("tvToday")
         val sleep = intent.getStringExtra("sleep")
@@ -55,6 +70,10 @@ class ResultActivity : AppCompatActivity() {
         val meetWhere = intent.getStringExtra("edtmeetwhere")
 
         tvLine1.text = "오늘은 ${tvToday},"
+
+        val dateString = tvToday.toString()
+        val formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일")
+        val date = LocalDate.parse(dateString, formatter)
 
         // sleep
         if (sleep == "잘잤음") {
@@ -187,6 +206,16 @@ class ResultActivity : AppCompatActivity() {
             marker.markerType = MapPOIItem.MarkerType.BluePin
             marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
             mapView.addPOIItem(marker)
+        }
+
+        sqlitedb = dbManager.writableDatabase
+        sqlitedb.execSQL("INSERT INTO diarybyday VALUES ('"+ date +"', '"+ tvLine2.text.toString() +"', '"
+                + tvLine3.text.toString() +"', '"+ tvLine4.text.toString() +"', '"+ tvLine5.text.toString() +"', '"
+                +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"');")
+        sqlitedb.close()
+
+        btnDiarytab.setOnClickListener {
+
         }
     }
 }
