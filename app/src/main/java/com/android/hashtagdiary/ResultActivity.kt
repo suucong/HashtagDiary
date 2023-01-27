@@ -52,8 +52,8 @@ class ResultActivity : AppCompatActivity() {
         val edtFood = intent.getStringExtra("edtfood")
         val food = intent.getStringExtra("food")
         val meet = intent.getStringExtra("meet")
-        val meetWho = intent.getStringExtra("meetwho")
-        val meetWhere = intent.getStringExtra("meetwhere")
+        val meetWho = intent.getStringExtra("edtmeetwho")
+        val meetWhere = intent.getStringExtra("edtmeetwhere")
 
         tvLine1.text = "오늘은 ${tvToday},"
 
