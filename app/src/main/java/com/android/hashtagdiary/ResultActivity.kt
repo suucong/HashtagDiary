@@ -105,6 +105,9 @@ class ResultActivity : AppCompatActivity() {
             val uLongitude = userNowLocation?.longitude
             val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
+            mapView.setMapCenterPoint(uNowPosition, true)
+            mapView.setZoomLevel(1, true)
+
             // 현 위치에 마커 찍기
             val marker = MapPOIItem()
             marker.itemName = "현 위치"
