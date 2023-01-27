@@ -1,8 +1,13 @@
 package com.android.hashtagdiary
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import android.widget.Button
+import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,17 +15,21 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.android.hashtagdiary.databinding.ActivityHomeBinding
+import java.security.MessageDigest
+import java.util.*
 
 class HomeActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityHomeBinding
     lateinit var btnRecord : Button
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 해시키 찾기
+        getAppKeyHash()
 
         val navView: BottomNavigationView = binding.navView
 
@@ -42,4 +51,23 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intentRecord)
         }
     }
+
+    // 해시키 찾는 함수
+    private fun getAppKeyHash() {
+        try {
+            val info =
+                packageManager.getPackageInfo("com.android.hashtagdiary", PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                var md: MessageDigest
+                md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                val something = String(Base64.encode(md.digest(), 0))
+                Log.e("Hash key", something)
+            }
+        } catch (e: Exception) {
+
+            Log.e("name not found", e.toString())
+        }
+    }
 }
+
