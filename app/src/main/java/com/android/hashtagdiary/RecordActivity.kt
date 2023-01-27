@@ -374,7 +374,7 @@ class RecordActivity : AppCompatActivity() {
                     intentResult.putExtra("weather", "맑음")
                 }
                 else if (chkbxBetween.isChecked) {
-                    intentResult.putExtra("weather", "약간 흐림")
+                    intentResult.putExtra("weather", "약간_흐림")
                 }
                 else if (chkbxCloudy.isChecked) {
                     intentResult.putExtra("weather", "흐림")

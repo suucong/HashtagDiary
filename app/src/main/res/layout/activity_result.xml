@@ -18,7 +18,7 @@
 
             <ImageView
                 android:id="@+id/imgToday"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@drawable/ic_home_black_24dp" />
 
@@ -39,6 +39,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="weather" />
+
+            <TextView
+                android:id="@+id/tvLine4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="food" />
+
+            <TextView
+                android:id="@+id/tvLine5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="meet" />
+
+            <TextView
+                android:id="@+id/tvLine6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="mood" />
 
             <TextView
                 android:id="@+id/tvHashTag"
