@@ -1,17 +1,14 @@
 package com.android.hashtagdiary
 
-import android.content.Context
-import android.database.sqlite.SQLiteDatabase
-import android.database.sqlite.SQLiteOpenHelper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import net.daum.mf.map.api.MapView
-import net.daum.mf.map.api.MapPoint
 
 class ResultActivity : AppCompatActivity() {
-    lateinit var tvDate : TextView
+    lateinit var tvLine1 : TextView
+    lateinit var tvLine2 : TextView
     lateinit var map_View: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +16,20 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
         map_View = findViewById(R.id.map_view)
 
-        tvDate = findViewById(R.id.tvDate)
+        tvLine1 = findViewById(R.id.tvLine1)
+        tvLine2 = findViewById(R.id.tvLine2)
 
         val tvToday = intent.getStringExtra("tvToday")
+        val sleep = intent.getStringExtra("sleep")
 
-        tvDate.text = "오늘은 ${tvToday}"
+        tvLine1.text = "오늘은 ${tvToday},"
+
+        if (sleep == "잘잤음") {
+            tvLine2.text = "잠을 잘 잤기 때문에, 일어났을 때 꽤 개운했다."
+        }
+        else if (sleep == "못잤음") {
+            tvLine2.text = "잠을 잘 못잤기 때문에, 찌부둥한 상태로 일어나게 되었다.."
+        }
 
         val mapView = MapView(this)
         map_View.addView(mapView)

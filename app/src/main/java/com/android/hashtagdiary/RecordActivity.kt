@@ -373,10 +373,10 @@ class RecordActivity : AppCompatActivity() {
             else {
                 // 잠
                 if (rdobtnSleepGood.isChecked) {
-                    intentResult.putExtra("sleep" , "잠을 잘 잔 것")
+                    intentResult.putExtra("sleep" , "잘잤음")
                 }
                 else if (rdobtnSleepBad.isChecked) {
-                    intentResult.putExtra("sleep", "잠을 잘 자지 못한 것")
+                    intentResult.putExtra("sleep", "못잤음")
                 }
                 else {}
 
