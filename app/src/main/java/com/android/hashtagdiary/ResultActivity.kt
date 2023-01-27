@@ -38,9 +38,6 @@ class ResultActivity : AppCompatActivity() {
         tvLine3 = findViewById(R.id.tvLine3)
         tvHashtag = findViewById(R.id.tvHashTag)
 
-        var we = 0.0
-        var ky = 0.0
-
         val tvToday = intent.getStringExtra("tvToday")
         val sleep = intent.getStringExtra("sleep")
         val mood = intent.getStringExtra("mood")
@@ -98,22 +95,22 @@ class ResultActivity : AppCompatActivity() {
             val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
             //위도 , 경도
-            we = userNowLocation?.latitude!!
-            ky = userNowLocation?.longitude!!
+            val uLatitude = userNowLocation?.latitude
+            val uLongitude = userNowLocation?.longitude!!
+
+            val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+
+            mapView.setMapCenterPoint(uNowPosition, true)
+            mapView.setZoomLevel(1, true)
+
+            // 현 위치에 마커 찍기
+            val marker = MapPOIItem()
+            marker.itemName = "현 위치"
+            marker.mapPoint =uNowPosition
+            marker.markerType = MapPOIItem.MarkerType.BluePin
+            marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+            mapView.addPOIItem(marker)
         }
-
-        val uNowPosition = MapPoint.mapPointWithGeoCoord(we!!, ky!!)
-
-        mapView.setMapCenterPoint(uNowPosition, true)
-        mapView.setZoomLevel(1, true)
-
-        // 현 위치에 마커 찍기
-        val marker = MapPOIItem()
-        marker.itemName = "현 위치"
-        marker.mapPoint =uNowPosition
-        marker.markerType = MapPOIItem.MarkerType.BluePin
-        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-        mapView.addPOIItem(marker)
     }
 }
 
