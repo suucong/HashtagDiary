@@ -369,6 +369,7 @@ class RecordActivity : AppCompatActivity() {
                 else if (edtMeetWhere.length() == 0) {
                     Toast.makeText(this, "${edtMeetWho.text}와(과) 어디서 만났는지 작성하세요", Toast.LENGTH_SHORT).show()
                 }
+                else {}
             }
             else {
                 // 잠
@@ -452,12 +453,12 @@ class RecordActivity : AppCompatActivity() {
                 // 만남
                 if (rdobtnMeetYes.isChecked) {
                     intentResult.putExtra("meet", "약속있음")
-                    if (edtMeetWho.length() != 0) {
-                        intentResult.putExtra("meetwho", edtMeetWho.text.toString())
-                    }
-                    if (edtMeetWhere.length() != 0) {
-                        intentResult.putExtra("meetwhere", edtMeetWhere.text.toString())
-                    }
+//                    //if (edtMeetWho.length() != 0) {
+//                        intentResult.putExtra("edtmeetwho", edtMeetWho.text.toString())
+//                    //}
+//                    //if (edtMeetWhere.length() != 0) {
+//                        intentResult.putExtra("edtmeetwhere", edtMeetWhere.text.toString())
+//                    //}
                 }
                 else if (rdobtnMeetNo.isChecked) {
                     intentResult.putExtra("meet", "약속없음")
