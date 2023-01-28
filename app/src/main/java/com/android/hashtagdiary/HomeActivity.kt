@@ -50,8 +50,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_diary, R.id.navigation_setting
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
 
         btnRecord = findViewById(R.id.btnRecord)
 
