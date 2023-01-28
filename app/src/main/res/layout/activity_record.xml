@@ -99,7 +99,7 @@
                         android:id="@+id/chkbxSunny"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/examplefile"
+                        android:button="@drawable/record_weather_sunny"
                         app:layout_constraintBottom_toTopOf="@+id/chkbxRain"
                         app:layout_constraintEnd_toStartOf="@+id/chkbxBetween"
                         app:layout_constraintHorizontal_bias="0.5"
