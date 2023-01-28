@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/uhbee_se_hyun"
         android:text="#지난 다이어리 확인하기"
         android:textColor="#000000"
         android:textSize="20sp"
