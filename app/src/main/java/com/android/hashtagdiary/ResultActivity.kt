@@ -2,6 +2,7 @@ package com.android.hashtagdiary
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.sqlite.SQLiteDatabase
 import android.location.Location
@@ -45,6 +46,8 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
+        val fragment_Diary = DiaryFragment()
+
         map_View = findViewById(R.id.map_View)
 
         dbManager = DBManager(this, "diarybyday", null, 1)
@@ -235,8 +238,10 @@ class ResultActivity : AppCompatActivity() {
                 +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"');")
         sqlitedb.close()
 
-//        btnDiarytab.setOnClickListener {
-//        }
+        btnDiarytab.setOnClickListener {
+            val intent = Intent(this, NaviActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 
