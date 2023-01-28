@@ -96,7 +96,7 @@ class ResultActivity : AppCompatActivity() {
             val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
             //위도 , 경도
             val uLatitude = userNowLocation?.latitude
-            val uLongitude = userNowLocation?.longitude!!
+            val uLongitude = userNowLocation?.longitude
 
             val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
@@ -113,4 +113,5 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 }
+
 
