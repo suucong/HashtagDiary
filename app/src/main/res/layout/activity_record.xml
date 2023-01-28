@@ -20,6 +20,7 @@
                 android:id="@+id/tvToday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/uhbee_se_hyun"
                 android:text="오늘은 nnnn년 nn월 nn일 입니다." />
 
             <LinearLayout
@@ -32,6 +33,7 @@
                     android:id="@+id/tvSleep"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/uhbee_se_hyun"
                     android:text="오늘 잠은 편히 잤나요?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:visibility="visible" />
