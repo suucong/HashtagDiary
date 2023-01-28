@@ -174,7 +174,7 @@ class ResultActivity : AppCompatActivity() {
                 // 이전에 거부한 적이 있으면 설명(참고)
                 var dlg = AlertDialog.Builder(this)
                 dlg.setTitle("권한이 필요한 이유")
-                dlg.setMessage("사진 정보를 얻기 위해서는 외부 저장소 권한이 필수로 필요합니다.")
+                dlg.setMessage("위치 정보를 얻기 위해서는 위치 권한이 필수로 필요합니다.")
                 dlg.setPositiveButton("확인") {dialog, which -> ActivityCompat.requestPermissions(this@ResultActivity,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)}
                 dlg.setNegativeButton("취소", null)
@@ -183,6 +183,27 @@ class ResultActivity : AppCompatActivity() {
                 // 처음 권한 요청
                 ActivityCompat.requestPermissions(this@ResultActivity,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
+                mapView.currentLocationTrackingMode =
+                    MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
+
+                val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+                //위도 , 경도
+                val uLatitude = userNowLocation?.latitude
+                val uLongitude = userNowLocation?.longitude
+
+                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+
+                mapView.setMapCenterPoint(uNowPosition, true)
+                mapView.setZoomLevel(1, true)
+
+                // 현 위치에 마커 찍기
+                val marker = MapPOIItem()
+                marker.itemName = "현 위치"
+                marker.mapPoint =uNowPosition
+                marker.markerType = MapPOIItem.MarkerType.BluePin
+                marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                mapView.addPOIItem(marker)
             } else {
             // 권한이 이미 제대로 허용됨
             mapView.currentLocationTrackingMode =
@@ -214,9 +235,8 @@ class ResultActivity : AppCompatActivity() {
                 +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"');")
         sqlitedb.close()
 
-        btnDiarytab.setOnClickListener {
-
-        }
+//        btnDiarytab.setOnClickListener {
+//        }
     }
 }
 

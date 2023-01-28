@@ -38,7 +38,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        getAppKeyHash()
+        // 지도 API 위한 해시키 찾는 함수
+//        getAppKeyHash()
 
         val navView: BottomNavigationView = binding.navView
 

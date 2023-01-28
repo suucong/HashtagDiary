@@ -1,83 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ResultActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imgToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_home_black_24dp" />
 
-            <ImageView
-                android:id="@+id/imgToday"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:srcCompat="@drawable/ic_home_black_24dp" />
+    <TextView
+        android:id="@+id/tvLine1"
+        android:layout_width="0dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="16dp"
+        android:hint="오늘은 yyyy년 MM월 dd일,"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgToday" />
 
-            <TextView
-                android:id="@+id/tvLine1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="오늘은 yyyy년 MM월 dd일," />
+    <TextView
+        android:id="@+id/tvLine2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="sleep"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine1" />
 
-            <TextView
-                android:id="@+id/tvLine2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="sleep" />
+    <TextView
+        android:id="@+id/tvLine3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="weather"
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine2" />
 
-            <TextView
-                android:id="@+id/tvLine3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="weather" />
+    <TextView
+        android:id="@+id/tvLine4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="food"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine3" />
 
-            <TextView
-                android:id="@+id/tvLine4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="food" />
 
-            <TextView
-                android:id="@+id/tvLine5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="meet" />
+    <TextView
+        android:id="@+id/tvLine5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="meet"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine4" />
 
-            <TextView
-                android:id="@+id/tvLine6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="mood" />
+    <TextView
+        android:id="@+id/tvLine6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="mood"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine5" />
 
-            <TextView
-                android:id="@+id/tvHashTag"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="hashtag" />
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/tvHashTag"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="hashtag"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLine6" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/map_View"
-            android:layout_width="367dp"
-            android:layout_height="352dp"
-            android:layout_gravity="bottom">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/map_View"
+        android:layout_width="413dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDiarytab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHashTag"
+        app:layout_constraintVertical_bias="1.0">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/btnDiarytab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="완료" />
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="완료"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
