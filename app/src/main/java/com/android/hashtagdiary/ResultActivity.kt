@@ -28,13 +28,13 @@ class ResultActivity : AppCompatActivity() {
     lateinit var dbManager : DBManager
     lateinit var sqlitedb : SQLiteDatabase
 
-    lateinit var tvLine1 : TextView // date
-    lateinit var tvLine2 : TextView // sleep
-    lateinit var tvLine3 : TextView // weather
-    lateinit var tvLine4 : TextView // food
-    lateinit var tvLine5 : TextView // meet
-    lateinit var tvLine6 : TextView // mood
-    lateinit var tvHashtag : TextView // hashtag
+    lateinit var tvLine1 : TextView  // date
+    lateinit var tvLine2 : TextView  // sleep
+    lateinit var tvLine3 : TextView  // weather
+    lateinit var tvLine4 : TextView  // food
+    lateinit var tvLine5 : TextView  // meet
+    lateinit var tvLine6 : TextView  // mood
+    lateinit var tvHashtag : TextView  // hashtag
 
     lateinit var map_View: ConstraintLayout
     lateinit var mapView: MapView

@@ -257,7 +257,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -268,22 +268,15 @@
                         android:id="@+id/tvFood1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="오늘 먹은 음식("
+                        android:text="오늘 먹은 음식은 어땠나요?😋"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     <EditText
                         android:id="@+id/edtFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="최대 11글자 입력"
+                        android:hint="음식 입력"
                         android:maxLength="11" />
-
-                    <TextView
-                        android:id="@+id/tvFood2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=")은 어땠나요?"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                 </LinearLayout>
 
