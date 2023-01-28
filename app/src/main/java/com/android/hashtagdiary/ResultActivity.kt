@@ -207,6 +207,7 @@ class ResultActivity : AppCompatActivity() {
                 marker.markerType = MapPOIItem.MarkerType.BluePin
                 marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
                 mapView.addPOIItem(marker)
+
             } else {
             // 권한이 이미 제대로 허용됨
             mapView.currentLocationTrackingMode =
