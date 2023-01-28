@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 if (today.equals(cursor.getString(0).toString())) {
                     Toast.makeText(requireContext(), "이미 오늘의 일기가 기록되었습니다.", Toast.LENGTH_LONG).show()
                     plag = "기록 완료"
-                    cursor.moveToLast()
+                    break
                 }
                 else {
                 }
