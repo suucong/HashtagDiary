@@ -10,5 +10,6 @@
         android:id="@+id/btnRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/uhbee_se_hyun"
         android:text="오늘 일기 쓰러가기" />
 </LinearLayout>
