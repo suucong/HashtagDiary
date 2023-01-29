@@ -5,18 +5,18 @@
         android:id="@+id/home_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="#home" />
+        android:title="#편지지" />
 
     <item
         android:id="@+id/diary_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="#diary" />
+        android:title="#보관함" />
 
     <item
         android:id="@+id/setting_fragment"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_settings_24"
-        android:title="#Setting" />
+        android:title="#설정" />
 
 </menu>
