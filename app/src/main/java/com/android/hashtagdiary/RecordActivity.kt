@@ -86,9 +86,6 @@ class RecordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
 
-        var we = 0.0
-        var ky = 0.0
-
         ll_sleep = findViewById(R.id.linearLayout_sleep)
         ll_weather = findViewById(R.id.linearLayout_weather)
         ll_mood = findViewById(R.id.linearLayout_mood)
