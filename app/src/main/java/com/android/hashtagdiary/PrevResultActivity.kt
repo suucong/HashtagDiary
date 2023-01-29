@@ -38,7 +38,6 @@ class PrevResultActivity : AppCompatActivity() {
 
     lateinit var map_View_prev : ConstraintLayout
     lateinit var mapView : MapView
-    private val ACCESS_FINE_LOCATION = 1000
 
     lateinit var btnBack_prev : Button
 
