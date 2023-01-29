@@ -1,5 +1,6 @@
 package com.android.hashtagdiary
 
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Build
@@ -98,6 +99,11 @@ class PrevResultActivity : AppCompatActivity() {
         marker.markerType = MapPOIItem.MarkerType.BluePin
         marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
         mapView.addPOIItem(marker)
+
+        btnBack_prev.setOnClickListener {
+            var intentNavi = Intent(this, NaviActivity::class.java)
+            startActivity(intentNavi)
+        }
 
     }
 }

@@ -226,8 +226,8 @@ class ResultActivity : AppCompatActivity() {
         sqlitedb.close()
 
         btnDiarytab.setOnClickListener {
-            val intent = Intent(this, NaviActivity::class.java)
-            startActivity(intent)
+            val intentNavi = Intent(this, NaviActivity::class.java)
+            startActivity(intentNavi)
         }
     }
 }
