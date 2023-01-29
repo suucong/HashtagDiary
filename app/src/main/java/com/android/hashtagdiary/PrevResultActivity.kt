@@ -11,6 +11,8 @@ import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_prev_result.*
 import kotlinx.android.synthetic.main.activity_result.*
+import net.daum.mf.map.api.MapPOIItem
+import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -30,6 +32,8 @@ class PrevResultActivity : AppCompatActivity() {
     lateinit var tvLine5_prev : TextView  // meet
     lateinit var tvLine6_prev : TextView  // mood
     lateinit var tvHashtag_prev : TextView  // hashtag
+    var latitude : Double = 0.0
+    var longtitude : Double = 0.0
 
     lateinit var map_View_prev : ConstraintLayout
     lateinit var mapView : MapView
@@ -54,6 +58,8 @@ class PrevResultActivity : AppCompatActivity() {
 
         btnBack_prev = findViewById(R.id.btnBack_prev)
 
+        map_View_prev = findViewById(R.id.map_View_prev)
+
         sqlitedb = dbManager.readableDatabase
         var cursor : Cursor
         cursor = sqlitedb.rawQuery("SELECT * FROM diarybyday;", null)
@@ -71,9 +77,27 @@ class PrevResultActivity : AppCompatActivity() {
                 tvLine5_prev.text = cursor.getString(4)
                 tvLine6_prev.text = cursor.getString(5)
                 tvHashtag_prev.text = cursor.getString(6)
-
+                latitude = cursor.getDouble(7)
+                longtitude = cursor.getDouble(8)
                 break
             }
         }
+
+        mapView = MapView(this)
+        map_View_prev.addView(mapView)
+
+        val uNowPosition = MapPoint.mapPointWithGeoCoord(latitude, longtitude)
+
+        mapView.setMapCenterPoint(uNowPosition, true)
+        mapView.setZoomLevel(1, true)
+
+        // 현 위치에 마커 찍기
+        val marker = MapPOIItem()
+        marker.itemName = "현 위치"
+        marker.mapPoint =uNowPosition
+        marker.markerType = MapPOIItem.MarkerType.BluePin
+        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+        mapView.addPOIItem(marker)
+
     }
 }
