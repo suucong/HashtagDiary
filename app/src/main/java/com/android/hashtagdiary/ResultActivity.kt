@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapPoint
+import org.w3c.dom.Text
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -41,6 +42,9 @@ class ResultActivity : AppCompatActivity() {
     private val ACCESS_FINE_LOCATION = 1000
 
     lateinit var btnDiarytab : Button
+
+    var latitude : Double = 0.0
+    var longtitude : Double = 0.0
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -171,7 +175,7 @@ class ResultActivity : AppCompatActivity() {
             ) != PackageManager.PERMISSION_GRANTED
         )
 
-        // 권한이 허용되지 않음
+            // 권한이 허용되지 않음
             if(ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
                 // 이전에 거부한 적이 있으면 설명(참고)
@@ -186,27 +190,6 @@ class ResultActivity : AppCompatActivity() {
                 // 처음 권한 요청
                 ActivityCompat.requestPermissions(this@ResultActivity,
                     arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), ACCESS_FINE_LOCATION)
-                mapView.currentLocationTrackingMode =
-                    MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
-
-                val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-                //위도 , 경도
-                val uLatitude = userNowLocation?.latitude
-                val uLongitude = userNowLocation?.longitude
-
-                val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
-
-                mapView.setMapCenterPoint(uNowPosition, true)
-                mapView.setZoomLevel(1, true)
-
-                // 현 위치에 마커 찍기
-                val marker = MapPOIItem()
-                marker.itemName = "현 위치"
-                marker.mapPoint =uNowPosition
-                marker.markerType = MapPOIItem.MarkerType.BluePin
-                marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-                mapView.addPOIItem(marker)
 
             } else {
             // 권한이 이미 제대로 허용됨
@@ -218,6 +201,9 @@ class ResultActivity : AppCompatActivity() {
             //위도 , 경도
             val uLatitude = userNowLocation?.latitude
             val uLongitude = userNowLocation?.longitude
+
+            latitude = uLatitude!!
+            longtitude = uLongitude!!
 
             val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
@@ -236,7 +222,7 @@ class ResultActivity : AppCompatActivity() {
         sqlitedb = dbManager.writableDatabase
         sqlitedb.execSQL("INSERT INTO diarybyday VALUES ('"+ date +"', '"+ tvLine2.text.toString() +"', '"
                 + tvLine3.text.toString() +"', '"+ tvLine4.text.toString() +"', '"+ tvLine5.text.toString() +"', '"
-                +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"');")
+                +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"', '"+ latitude +"', '"+ longtitude +"');")
         sqlitedb.close()
 
         btnDiarytab.setOnClickListener {

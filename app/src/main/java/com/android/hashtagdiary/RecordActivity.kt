@@ -1,6 +1,12 @@
 package com.android.hashtagdiary
 
+import android.Manifest
+import android.Manifest.permission.ACCESS_FINE_LOCATION
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,7 +20,13 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import net.daum.mf.map.api.MapPOIItem
+import net.daum.mf.map.api.MapPoint
+import net.daum.mf.map.api.MapView
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -73,6 +85,9 @@ class RecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
+
+        var we = 0.0
+        var ky = 0.0
 
         ll_sleep = findViewById(R.id.linearLayout_sleep)
         ll_weather = findViewById(R.id.linearLayout_weather)
@@ -461,8 +476,6 @@ class RecordActivity : AppCompatActivity() {
                     startActivity(intentResult)
                 }
                 else {}
-
-
             }
         }
     }
