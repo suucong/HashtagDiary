@@ -434,7 +434,7 @@ class RecordActivity : AppCompatActivity() {
                     intentResult.putExtra("food", "매일_먹고싶음")
                 }
                 else if (chkbxGood.isChecked) {
-                    intentResult.putExtra("food", "맜있음")
+                    intentResult.putExtra("food", "맛있음")
                 }
                 else if (chkbxSoso.isChecked) {
                     intentResult.putExtra("food", "무난함")

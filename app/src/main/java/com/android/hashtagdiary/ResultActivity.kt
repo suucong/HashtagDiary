@@ -91,7 +91,7 @@ class ResultActivity : AppCompatActivity() {
         }
 
         // weather
-        if (weather == "맑음") {
+        if (weather.equals("맑음")) {
             tvLine3.text = "오늘의 날씨는 매우 맑고 햇살이 따사롭게 내리쬐는 날씨였다."
         }
         else if (weather == "약간_흐림") {
@@ -111,10 +111,10 @@ class ResultActivity : AppCompatActivity() {
         }
 
         // food
-        if (food == "매일_먹고싶음") {
+        if (food.equals("매일_먹고싶음")) {
              tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 매일 먹고 싶을 만큼 정말 맛있었다."
         }
-        else if (food == "맛있음") {
+        else if (food.equals("맛있음")) {
             tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 맛있었고 꽤 괜찮았다."
         }
         else if (food == "무난함") {

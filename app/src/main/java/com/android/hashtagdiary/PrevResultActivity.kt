@@ -2,13 +2,21 @@ package com.android.hashtagdiary
 
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.activity_prev_result.*
+import kotlinx.android.synthetic.main.activity_result.*
 import net.daum.mf.map.api.MapView
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class PrevResultActivity : AppCompatActivity() {
 
@@ -29,6 +37,7 @@ class PrevResultActivity : AppCompatActivity() {
 
     lateinit var btnBack_prev : Button
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prev_result)
@@ -47,9 +56,24 @@ class PrevResultActivity : AppCompatActivity() {
 
         sqlitedb = dbManager.readableDatabase
         var cursor : Cursor
-        cursor = sqlitedb.rawQuery("SELECT date FROM diarybyday;", null)
+        cursor = sqlitedb.rawQuery("SELECT * FROM diarybyday;", null)
+
+        var datePrev :String = intent.getStringExtra("date").toString()
+        var dateParam = LocalDate.parse(datePrev, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+        var tvDate = dateParam.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일"))
 
         while (cursor.moveToNext()) {
+            if (cursor.getString(0).equals(datePrev)) {
+                tvLine1_prev.text = "오늘은 ${tvDate},"
+                tvLine2_prev.text = cursor.getString(1)
+                tvLine3_prev.text = cursor.getString(2)
+                tvLine4_prev.text = cursor.getString(3)
+                tvLine5_prev.text = cursor.getString(4)
+                tvLine6_prev.text = cursor.getString(5)
+                tvHashtag_prev.text = cursor.getString(6)
+
+                break
+            }
         }
     }
 }
