@@ -16,13 +16,13 @@
 
     <Button
         android:id="@+id/btnRecord"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/button_hard_round"
         android:fontFamily="@font/uhbee_se_hyun"
+        android:text=" 오늘 일기 쓰러가기"
         android:textColor="@color/gray"
-        android:text="오늘 일기 쓰러가기"
-        android:textSize="20dp"
-        tools:layout_marginLeft="82dp" />
+        android:textSize="16dp" />
 </LinearLayout>
