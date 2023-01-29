@@ -4,12 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/Background"
     tools:context=".HomeFragment" >
 
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:src = "@drawable/img_home"/>
     <Button
         android:id="@+id/btnRecord"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_hard_round"
         android:fontFamily="@font/uhbee_se_hyun"
-        android:text="오늘 일기 쓰러가기" />
+        android:text="오늘 일기 쓰러가기"
+        android:textSize="20sp"/>
 </LinearLayout>
