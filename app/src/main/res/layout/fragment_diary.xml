@@ -5,37 +5,42 @@
     android:id="@+id/Constraint_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DiaryFragment" >
+    android:background="@color/Background"
+    tools:context=".DiaryFragment">
 
     <TextView
         android:id="@+id/tvPrevDiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="113dp"
         android:fontFamily="@font/uhbee_se_hyun"
-        android:text="#지난 다이어리 확인하기"
+        android:text="도착한 편지 확인하기"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textColor="@color/Brown" />
 
     <CalendarView
         android:id="@+id/calendarDiary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPrevDiary" />
 
     <Button
         android:id="@+id/btnPrevResult"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_hard_round"
+        android:fontFamily="@font/uhbee_se_hyun"
         android:text="선택한 날짜의 기록 보기"
+        android:textColor="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarDiary" />
