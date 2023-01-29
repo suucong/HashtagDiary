@@ -1,12 +1,6 @@
 package com.android.hashtagdiary
 
-import android.Manifest
-import android.Manifest.permission.ACCESS_FINE_LOCATION
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.location.Location
-import android.location.LocationManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,13 +14,7 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import net.daum.mf.map.api.MapPOIItem
-import net.daum.mf.map.api.MapPoint
-import net.daum.mf.map.api.MapView
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -61,8 +49,8 @@ class RecordActivity : AppCompatActivity() {
     lateinit var chkbxHappy : CheckBox
     lateinit var chkbxComfort : CheckBox
     lateinit var chkbxLethargic : CheckBox
-    lateinit var chkbxGloomy : CheckBox
-    lateinit var chkbxLonely : CheckBox
+    lateinit var chkbxAngry : CheckBox
+    lateinit var chkbxSad : CheckBox
     lateinit var chkbxDontknow : CheckBox
 
     // food
@@ -114,8 +102,8 @@ class RecordActivity : AppCompatActivity() {
         chkbxHappy = findViewById(R.id.chkbxHappy)
         chkbxComfort = findViewById(R.id.chkbxComfort)
         chkbxLethargic = findViewById(R.id.chkbxLethargic)
-        chkbxGloomy = findViewById(R.id.chkbxGloomy)
-        chkbxLonely = findViewById(R.id.chkbxLonely)
+        chkbxAngry = findViewById(R.id.chkbxAngry)
+        chkbxSad = findViewById(R.id.chkbxSad)
         chkbxDontknow = findViewById(R.id.chkbxDontknow)
 
         // food
@@ -220,8 +208,8 @@ class RecordActivity : AppCompatActivity() {
             if (chkbxHappy.isChecked) {
                 chkbxComfort.setChecked(false)
                 chkbxLethargic.setChecked(false)
-                chkbxGloomy.setChecked(false)
-                chkbxLonely.setChecked(false)
+                chkbxAngry.setChecked(false)
+                chkbxSad.setChecked(false)
                 chkbxDontknow.setChecked(false)
             }
         }
@@ -230,8 +218,8 @@ class RecordActivity : AppCompatActivity() {
             if (chkbxComfort.isChecked) {
                 chkbxHappy.setChecked(false)
                 chkbxLethargic.setChecked(false)
-                chkbxGloomy.setChecked(false)
-                chkbxLonely.setChecked(false)
+                chkbxAngry.setChecked(false)
+                chkbxSad.setChecked(false)
                 chkbxDontknow.setChecked(false)
             }
         }
@@ -240,28 +228,28 @@ class RecordActivity : AppCompatActivity() {
             if (chkbxLethargic.isChecked) {
                 chkbxHappy.setChecked(false)
                 chkbxComfort.setChecked(false)
-                chkbxGloomy.setChecked(false)
-                chkbxLonely.setChecked(false)
+                chkbxAngry.setChecked(false)
+                chkbxSad.setChecked(false)
                 chkbxDontknow.setChecked(false)
             }
         }
 
-        chkbxGloomy.setOnCheckedChangeListener { button, isChecked ->
-            if (chkbxGloomy.isChecked) {
+        chkbxAngry.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxAngry.isChecked) {
                 chkbxHappy.setChecked(false)
                 chkbxComfort.setChecked(false)
                 chkbxLethargic.setChecked(false)
-                chkbxLonely.setChecked(false)
+                chkbxSad.setChecked(false)
                 chkbxDontknow.setChecked(false)
             }
         }
 
-        chkbxLonely.setOnCheckedChangeListener { button, isChecked ->
-            if (chkbxLonely.isChecked) {
+        chkbxSad.setOnCheckedChangeListener { button, isChecked ->
+            if (chkbxSad.isChecked) {
                 chkbxHappy.setChecked(false)
                 chkbxComfort.setChecked(false)
                 chkbxLethargic.setChecked(false)
-                chkbxGloomy.setChecked(false)
+                chkbxAngry.setChecked(false)
                 chkbxDontknow.setChecked(false)
             }
         }
@@ -271,8 +259,8 @@ class RecordActivity : AppCompatActivity() {
                 chkbxHappy.setChecked(false)
                 chkbxComfort.setChecked(false)
                 chkbxLethargic.setChecked(false)
-                chkbxGloomy.setChecked(false)
-                chkbxLonely.setChecked(false)
+                chkbxAngry.setChecked(false)
+                chkbxSad.setChecked(false)
             }
         }
 
@@ -358,7 +346,7 @@ class RecordActivity : AppCompatActivity() {
                 Toast.makeText(this, "오늘의 날씨를 선택하세요", Toast.LENGTH_SHORT).show()
             }
             else if ((chkbxHappy.isChecked || chkbxComfort.isChecked || chkbxLethargic.isChecked
-                        || chkbxGloomy.isChecked || chkbxLonely.isChecked || chkbxDontknow.isChecked) == false) {
+                        || chkbxAngry.isChecked || chkbxSad.isChecked || chkbxDontknow.isChecked) == false) {
                 Toast.makeText(this, "오늘의 기분을 선택하세요", Toast.LENGTH_SHORT).show()
             }
             else if (edtFood.length() == 0) {
@@ -412,11 +400,11 @@ class RecordActivity : AppCompatActivity() {
                 else if (chkbxLethargic.isChecked) {
                     intentResult.putExtra("mood", "무기력")
                 }
-                else if (chkbxGloomy.isChecked) {
-                    intentResult.putExtra("mood", "우울")
+                else if (chkbxAngry.isChecked) {
+                    intentResult.putExtra("mood", "화남")
                 }
-                else if (chkbxLonely.isChecked) {
-                    intentResult.putExtra("mood", "쓸쓸")
+                else if (chkbxSad.isChecked) {
+                    intentResult.putExtra("mood", "슬픔")
                 }
                 else if (chkbxDontknow.isChecked) {
                     intentResult.putExtra("mood", "모르겠음")

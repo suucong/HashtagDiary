@@ -213,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:button="@drawable/record_emotion_happy"
-                        app:layout_constraintBottom_toTopOf="@+id/chkbxGloomy"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxAngry"
                         app:layout_constraintEnd_toStartOf="@+id/chkbxComfort"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +225,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:button="@drawable/record_emotion_comfort"
-                        app:layout_constraintBottom_toTopOf="@+id/chkbxLonely"
+                        app:layout_constraintBottom_toTopOf="@+id/chkbxSad"
                         app:layout_constraintEnd_toStartOf="@+id/chkbxLethargic"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/chkbxHappy"
@@ -245,19 +245,19 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/chkbxGloomy"
+                        android:id="@+id/chkbxAngry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:button="@drawable/record_emotion_gloomy"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/chkbxLonely"
+                        app:layout_constraintEnd_toStartOf="@+id/chkbxSad"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/chkbxHappy" />
 
                     <CheckBox
-                        android:id="@+id/chkbxLonely"
+                        android:id="@+id/chkbxSad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -265,7 +265,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/chkbxDontknow"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/chkbxGloomy"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxAngry"
                         app:layout_constraintTop_toBottomOf="@+id/chkbxComfort" />
 
                     <CheckBox
@@ -278,7 +278,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/chkbxLonely"
+                        app:layout_constraintStart_toEndOf="@+id/chkbxSad"
                         app:layout_constraintTop_toBottomOf="@+id/chkbxLethargic" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

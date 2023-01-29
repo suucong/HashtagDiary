@@ -148,11 +148,11 @@ class ResultActivity : AppCompatActivity() {
         else if (mood == "무기력") {
             tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나의 하루는 조금 무기력했다고 말할 수 있을 것 같다."
         }
-        else if (mood == "우울") {
-            tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나는 조금 우울했다고 말할 수 있을 것 같다."
+        else if (mood == "화남") {
+            tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나는 조금 화난 상태였다고 말할 수 있을 것 같다."
         }
-        else if (mood == "쓸쓸") {
-            tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나는 쓸쓸한 감정을 많이 느꼈다고 말할 수 있을 것 같다."
+        else if (mood == "슬픔") {
+            tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나는 슬픈 감정을 많이 느꼈다고 말할 수 있을 것 같다."
         }
         else if (mood == "모르겠음") {
             tvLine6.text = "전체적으로 하루를 되돌아보았을 때, 오늘 나의 감정은 하나로 정의내리기가 어려운 것 같다."
