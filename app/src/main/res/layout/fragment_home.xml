@@ -35,7 +35,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/button_hard_round"
         android:fontFamily="@font/uhbee_se_hyun"
-        android:text=" 오늘 일기 쓰러가기"
+        android:text=" 오늘 편지 쓰러가기"
         android:textColor="@color/gray"
         android:textSize="16dp" />
 </LinearLayout>
