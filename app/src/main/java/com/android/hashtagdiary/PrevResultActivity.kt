@@ -89,22 +89,22 @@ class PrevResultActivity : AppCompatActivity() {
             }
         }
 
-        if (tvLine3_prev.equals("오늘의 날씨는 매우 맑고 햇살이 따사롭게 내리쬐는 날씨였다.")){
+        if (tvLine3_prev.text.equals("오늘의 날씨는 매우 맑고 햇살이 따사롭게 내리쬐는 날씨였다.")){
             imgToday.setImageResource(R.drawable.img_result_sunny)
         }
-        else if (tvLine3_prev.equals("오늘은 약간 흐려서, 눈이 편했고 바깥활동을 하기 좋은 날씨였다.")) {
+        else if (tvLine3_prev.text.equals("오늘은 약간 흐려서, 눈이 편했고 바깥활동을 하기 좋은 날씨였다.")) {
             imgToday.setImageResource(R.drawable.img_result_cloud)
         }
-        else if (tvLine3_prev.equals("오늘은 꽤나 흐려서, 마치 곧 비가 올 것처럼 구름이 가득했다.")) {
+        else if (tvLine3_prev.text.equals("오늘은 꽤나 흐려서, 마치 곧 비가 올 것처럼 구름이 가득했다.")) {
             imgToday.setImageResource(R.drawable.img_result_vcloud)
         }
-        else if (tvLine3_prev.equals("오늘은 비가 계속 내려서, 하루종일 어두컴컴하고 습도가 높은 날씨였다.")) {
+        else if (tvLine3_prev.text.equals("오늘은 비가 계속 내려서, 하루종일 어두컴컴하고 습도가 높은 날씨였다.")) {
             imgToday.setImageResource(R.drawable.img_result_rain)
         }
-        else if (tvLine3_prev.equals("오늘은 눈이 내려서 온 세상이 하얗고, 곳곳에 눈사람이 보이는 하루였다.")) {
+        else if (tvLine3_prev.text.equals("오늘은 눈이 내려서 온 세상이 하얗고, 곳곳에 눈사람이 보이는 하루였다.")) {
             imgToday.setImageResource(R.drawable.img_result_snow)
         }
-        else if (tvLine3_prev.equals("오늘은 꽤나 정신없이 살았는지 날씨가 기억이 나질 않는다.")) {
+        else if (tvLine3_prev.text.equals("오늘은 꽤나 정신없이 살았는지 날씨가 기억이 나질 않는다.")) {
             imgToday.setImageResource(R.drawable.img_result)
         }
 
