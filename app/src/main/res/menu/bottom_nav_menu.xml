@@ -10,12 +10,12 @@
     <item
         android:id="@+id/diary_fragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:icon="@drawable/navi3"
         android:title="#보관함" />
 
     <item
         android:id="@+id/setting_fragment"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_settings_24"
+        android:icon="@drawable/navi2"
         android:title="#설정" />
 </menu>

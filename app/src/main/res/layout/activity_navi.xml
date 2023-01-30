@@ -22,6 +22,7 @@ tools:context=".NaviActivity">
         app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
         app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"
         app:itemBackground="@color/Background_Dark"
+        android:background="@color/empty"
         app:menu="@menu/bottom_nav_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

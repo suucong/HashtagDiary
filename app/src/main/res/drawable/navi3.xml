@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_letter_off_11" android:state_checked="false"/>
+    <item android:drawable="@drawable/ic_letter_on_11" android:state_checked="true"/>
+</selector>
