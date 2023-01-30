@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HashtagDiary</string>
+    <string name="app_name">제비록</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">#home</string>
     <string name="title_diary">#diary</string>
