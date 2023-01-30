@@ -23,54 +23,55 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                android:layout_height="250dp"
+                android:src="@drawable/story1"/>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                android:layout_height="250dp"
+                android:src="@drawable/story2"/>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"/>
+                android:layout_height="250dp"
+                android:src="@drawable/story3"/>
 
-
-        <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="300dp"
-                android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+                android:layout_marginBottom="45dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnToGoHome"
+                    android:layout_width="150dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/button_hard_round"
+                    android:fontFamily="@font/uhbee_se_hyun"
+                    android:text="기록하러 가기"
+                    android:textColor="@color/gray"
+                    android:textSize="14dp" />
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/story4"/>
+            </FrameLayout>
 
-            <Button
-                android:id="@+id/btnToGoHome"
-                android:layout_width="200dp"
-                android:layout_height="30dp"
-                android:background="@drawable/button_hard_round"
-                android:fontFamily="@font/uhbee_se_hyun"
-                android:text="홈화면으로 돌아가기"
-                android:textColor="@color/gray"
-                android:textSize="14dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="300dp"/>
-
-        </LinearLayout>
 
         </LinearLayout>
 

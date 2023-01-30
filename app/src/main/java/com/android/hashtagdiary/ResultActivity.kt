@@ -96,75 +96,75 @@ class ResultActivity : AppCompatActivity() {
         // weather
         if (weather.equals("맑음")) {
             imgToday.setImageResource(R.drawable.img_result_sunny)
-            tvLine3.text = "오늘은 매우 맑고, 햇살이 따사롭게 내리쬐는 날씨였어."
+            tvLine3.text = "바깥은 매우 맑고, 햇살이 따사롭게 내리쬐는 날씨였어."
         }
         else if (weather == "약간_흐림") {
             imgToday.setImageResource(R.drawable.img_result_cloud)
-            tvLine3.text = "오늘은 약간 흐려서, 편안하게 외출하기에 좋은 날씨였어."
+            tvLine3.text = "바깥은 약간 흐려서, 편안하게 외출하기에 좋은 날씨였어."
         }
         else if (weather == "흐림") {
             imgToday.setImageResource(R.drawable.img_result_vcloud)
-            tvLine3.text = "오늘은 엄청 흐려서, 곧 비가 올 것처럼 구름이 가득했어."
+            tvLine3.text = "바깥은 엄청 흐려서, 곧 비가 올 것처럼 구름이 가득했어."
         }
         else if (weather == "비") {
             imgToday.setImageResource(R.drawable.img_result_rain)
-            tvLine3.text = "오늘은 비가 계속 내려서, 하루 종일 어두컴컴하고 끈적거리는 날씨였어."
+            tvLine3.text = "바깥은 비가 계속 내려서, 하루 종일 어두컴컴하고 끈적거리는 날씨였어."
         }
         else if (weather == "눈") {
             imgToday.setImageResource(R.drawable.img_result_snow)
-            tvLine3.text = "오늘은 눈이 내려서, 온 세상이 하얗고 곳곳에 눈사람이 보이는 하루였어."
+            tvLine3.text = "바깥은 눈이 내려서, 온 세상이 하얗고 곳곳에 눈사람이 보이는 하루였어."
         }
         else if (weather == "날씨_기억안남") {
             imgToday.setImageResource(R.drawable.img_result)
-            tvLine3.text = "오늘은 너무 바빴는지, 날씨가 기억나지 않는다고 했어."
+            tvLine3.text = "날씨는 기억나지 않는다고 했어. 너는 오늘 아주 바빴나봐."
         }
 
         // food
         if (food.equals("매일_먹고싶음")) {
-             tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 매일 먹고 싶을 만큼 정말 맛있었대."
+             tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 매일 먹고 싶을 만큼 정말 맛있었대."
         }
         else if (food.equals("맛있음")) {
-            tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 제법 맛있었대."
+            tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 제법 맛있었대."
         }
         else if (food == "무난함") {
-            tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 그럭저럭 무난한 맛이었대."
+            tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 그럭저럭 무난한 맛이었대."
         }
         else if (food == "맛없음") {
-            tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 맛이 없어서 조금 실망스러웠대."
+            tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 맛이 없어서 조금 실망스러웠대."
         }
         else if (food == "다신_안먹고싶음") {
-            tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 다신 안먹고 싶을만큼 최악의 맛이었대..."
+            tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 다신 안먹고 싶을만큼 최악의 맛이었대..."
         }
         else if (food == "무슨맛인지_기억_안남") {
-            tvLine4.text = "그리고 오늘 ${edtFood}을(를) 먹었는데, 인상적이진 않았나봐. 어떤 맛인지 기억이 안 난대."
+            tvLine4.text = "그리고 ${edtFood}을(를) 먹었는데, 인상적이진 않았나봐. 어떤 맛인지 기억이 안 난대."
         }
 
         // meet
         if (meet == "약속있음") {
-            tvLine5.text = "그리고 오늘은 ${meetWho}와(과) 약속이 있어서, ${meetWhere}에 다녀왔어."
+            tvLine5.text = "오늘은 ${meetWho}와(과) 약속이 있어서, ${meetWhere}에 다녀왔어."
         }
         else if (meet == "약속없음") {
-            tvLine5.text = "그리고 오늘은 별다른 약속이 없어서, 혼자만의 시간을 보냈어."
+            tvLine5.text = "오늘은 별다른 약속이 없어서, 혼자만의 시간을 보냈어."
         }
 
         // mood
         if (mood == "행복") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너는 행복한 하루를 보냈다고 했어. 내일도 오늘만 같기를 바랄게."
+            tvLine6.text = "잠자리에 누워서 말하길, 너는 행복한 하루를 보냈다고 했어. 내일도 오늘만 같기를 바랄게."
         }
         else if (mood == "편안") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너는 편안한 하루를 보냈다고 했어. 네가 행복해 보여서 기뻐."
+            tvLine6.text = "잠자리에 누워서 말하길, 너는 편안한 하루를 보냈다고 했어. 네가 행복해 보여서 기뻐."
         }
         else if (mood == "무기력") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너의 하루는 조금 무기력했대. 그래도 내일 너는 더 행복할거야."
+            tvLine6.text = "잠자리에 누워서 말하길, 너의 하루는 조금 무기력했대. 그래도 내일 너는 더 행복할거야."
         }
         else if (mood == "화남") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너는 조금 화가 났었대. 내일은 그러지 않기를 기도할게."
+            tvLine6.text = "잠자리에 누워서 말하길, 너는 조금 화가 났었대. 내일은 그러지 않기를 기도할게."
         }
         else if (mood == "슬픔") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너는 슬픈 것 같았대. 괜찮아, 내가 옆에 있을게."
+            tvLine6.text = "잠자리에 누워서 말하길, 너는 슬픈 것 같았대. 괜찮아, 내가 옆에 있을게."
         }
         else if (mood == "모르겠음") {
-            tvLine6.text = "잠자리에 누워서 말하길, 오늘 너의 하루는 너무 복잡했대. 내일은 더 행복하길 바랄게."
+            tvLine6.text = "잠자리에 누워서 말하길, 너의 하루는 너무 복잡했대. 내일은 더 행복하길 바랄게."
         }
 
         // hashtag
