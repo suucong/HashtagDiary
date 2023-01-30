@@ -79,8 +79,9 @@
                         android:id="@+id/rdobtnSleepBad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="15dp"
-                        android:button="@drawable/record_sleep_bad" />
+                        android:layout_marginLeft="15dp"
+                        android:button="@drawable/record_sleep_bad"
+                        android:gravity="center" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -409,7 +410,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/tvMeetYN"
@@ -442,6 +443,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
+                        android:layout_marginRight="149dp"
                         android:button="@drawable/record_meet_no"
                         android:gravity="center" />
                 </RadioGroup>
@@ -450,31 +452,34 @@
                     android:id="@+id/linearLayout_meetDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <EditText
                         android:id="@+id/edtMeetWho"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_marginTop="5dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="30dp"
                         android:background="@drawable/edittext_round"
                         android:fontFamily="@font/uhbee_se_hyun"
                         android:hint="누구와 만났나요?"
+                        android:paddingLeft="4dp"
                         android:textSize="15dp" />
 
                     <EditText
                         android:id="@+id/edtMeetWhere"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_marginTop="15dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="30dp"
                         android:background="@drawable/edittext_round"
                         android:fontFamily="@font/uhbee_se_hyun"
                         android:hint="어디서 만났나요?"
+                        android:paddingLeft="4dp"
                         android:textSize="15dp" />
                 </LinearLayout>
 
