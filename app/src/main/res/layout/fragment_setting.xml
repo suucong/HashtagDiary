@@ -9,20 +9,27 @@
     tools:context=".SettingFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="90dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/nickName"
             android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="55dp"
-            android:gravity="right"
-            android:hint="닉네임을 입력하세요"
+            android:layout_height="wrap_content"
+            android:background="@color/empty"
+            android:fontFamily="@font/uhbee_se_hyun"
+            android:hint="닉네임"
             android:inputType="textPersonName"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textAlignment="center"
+            android:textSize="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TouchTargetSizeCheck" />
@@ -31,24 +38,15 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="'s Diary"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/uhbee_se_hyun"
+            android:text="의 편지함"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="24dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/nickName"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/saveButton__"
-            android:layout_width="44dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="7dp"
-            android:text="저장"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
@@ -67,12 +65,12 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="415dp"
         android:layout_height="60dp"
-        android:layout_marginTop="239dp"
+        android:layout_marginTop="210dp"
         android:backgroundTint="@color/empty"
         android:fontFamily="@font/uhbee_se_hyun"
+        android:text="개인정보 수정"
         android:textColor="@color/gray"
         android:textSize="13dp"
-        android:text="개인정보 수정"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,5 +154,19 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_5" />
+
+    <Button
+        android:id="@+id/saveButton__"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_hard_round"
+        android:fontFamily="@font/uhbee_se_hyun"
+        android:text="저장"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

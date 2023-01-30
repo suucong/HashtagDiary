@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.HashtagDiary" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/Orange</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/Brown</item>
+        <item name="colorPrimaryVariant">@color/Orange</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -14,7 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-<!--    <style name="CustomDateTextAppearance" parent="TextAppearance..Date">-->
+    <style name="BottomNavigationViewTextStyle">
+        <item name="android:fontFamily">@font/uhbee_se_hyun</item>
+    </style>
+
+
+    <!--    <style name="CustomDateTextAppearance" parent="TextAppearance..Date">-->
 <!--        <item name="android:textColor">@drawable/calendar_date_text_color</item>-->
 <!--        <item name="android:textSize">16sp</item>-->
 <!--        <item name="android:fontFamily">@font/applesdgothicneoregular</item>-->
