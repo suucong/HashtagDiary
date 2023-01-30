@@ -34,11 +34,11 @@ class HomeFragment : Fragment() {
 
         sqlitedb = dbManager.readableDatabase
         var cursor : Cursor
-        cursor = sqlitedb.rawQuery("SELECT date FROM diarybyday;", null)
         var today = LocalDate.now().toString()
 
         var plag : String = "기록 안함"
         btnRecord.setOnClickListener {
+            cursor = sqlitedb.rawQuery("SELECT date FROM diarybyday;", null)
             while (cursor.moveToNext()) {
                 // 오늘 이미 일기를 기록하였을 때
                 if (today.equals(cursor.getString(0).toString())) {
@@ -57,10 +57,7 @@ class HomeFragment : Fragment() {
                 sqlitedb.close()
                 cursor.close()
             }
-
             plag = "기록 안함"
-            cursor.moveToFirst()
-
         }
 
         // 버튼 누르면, 스토리텔링 액티비티로 전환
