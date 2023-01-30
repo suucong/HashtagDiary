@@ -18,6 +18,9 @@
         android:text="보관함 확인하기"
         android:textColor="@color/Brown"
         android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:background="@color/Background_Dark" />
 
     <TextView
