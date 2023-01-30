@@ -40,21 +40,27 @@ class HomeFragment : Fragment() {
         var plag : String = "기록 안함"
         btnRecord.setOnClickListener {
             while (cursor.moveToNext()) {
+                // 오늘 이미 일기를 기록하였을 때
                 if (today.equals(cursor.getString(0).toString())) {
-                    Toast.makeText(requireContext(), "이미 오늘의 일기가 기록되었습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), "이미 오늘의 일기가 기록되었습니다.", Toast.LENGTH_SHORT).show()
                     plag = "기록 완료"
                     break
                 }
-                else {
+                else{
                 }
             }
 
+            //  오늘 쓴 일기가 없을 때
             if (plag.equals("기록 안함")) {
                 var intentRecord = Intent(getActivity(), RecordActivity::class.java)
                 startActivity(intentRecord)
+                sqlitedb.close()
+                cursor.close()
             }
-            sqlitedb.close()
-            cursor.close()
+
+            plag = "기록 안함" // plag 값 다시 초기화
+            cursor.moveToFirst()
+
         }
 
         // 버튼 누르면, 스토리텔링 액티비티로 전환
