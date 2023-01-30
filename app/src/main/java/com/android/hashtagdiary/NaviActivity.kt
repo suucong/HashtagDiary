@@ -31,6 +31,7 @@ class NaviActivity : AppCompatActivity() {
             true
         }
 
+        // 위치 권한 요청하는 코드
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
