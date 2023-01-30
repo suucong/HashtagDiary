@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            //  오늘 쓴 일기가 없을 때
+            //  오늘 쓴 일기가 없을 때 기록 안함
             if (plag.equals("기록 안함")) {
                 var intentRecord = Intent(getActivity(), RecordActivity::class.java)
                 startActivity(intentRecord)
