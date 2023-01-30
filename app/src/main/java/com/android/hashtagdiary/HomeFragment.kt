@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 cursor.close()
             }
 
-            plag = "기록 안함" // plag 값 다시 초기화
+            plag = "기록 안함"
             cursor.moveToFirst()
 
         }
