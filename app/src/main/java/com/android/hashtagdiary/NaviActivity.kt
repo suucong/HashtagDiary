@@ -4,11 +4,14 @@ import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.android.hashtagdiary.databinding.ActivityNaviBinding
+import java.security.MessageDigest
 
 class NaviActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNaviBinding
@@ -19,6 +22,8 @@ class NaviActivity : AppCompatActivity() {
         setContentView(R.layout.activity_navi)
         binding = ActivityNaviBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        getAppKeyHash()
 
         changeFragment(HomeFragment())
 
@@ -56,6 +61,24 @@ class NaviActivity : AppCompatActivity() {
 
             } else {
             // 권한이 이미 제대로 허용됨
+        }
+    }
+
+    // 해시키 찾는 함수
+    private fun getAppKeyHash() {
+        try {
+            val info =
+                packageManager.getPackageInfo("com.android.hashtagdiary", PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                var md: MessageDigest
+                md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                val something = String(Base64.encode(md.digest(), 0))
+                Log.e("Hash key", something)
+            }
+        } catch (e: Exception) {
+
+            Log.e("name not found", e.toString())
         }
     }
 
