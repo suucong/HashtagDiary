@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
                 sqlitedb.close()
                 cursor.close()
             }
+
             plag = "기록 안함"
         }
 
