@@ -98,7 +98,7 @@ class PrevResultActivity : AppCompatActivity() {
         else if (tvLine3_prev.equals("바깥은 엄청 흐려서, 곧 비가 올 것처럼 구름이 가득했어.")) {
             imgToday.setImageResource(R.drawable.img_result_vcloud)
         }
-        else if (tvLine3_prev.equals("바깥은 비가 계속 내려서, 하루 종일 어두컴컴하고 끈적거리는 날씨였어.")) {
+        else if (tvLine3_prev.text.equals("바깥은 비가 계속 내려서, 하루 종일 어두컴컴하고 끈적거리는 날씨였어.")) {
             imgToday.setImageResource(R.drawable.img_result_rain)
         }
         else if (tvLine3_prev.equals("바깥은 눈이 내려서, 온 세상이 하얗고 곳곳에 눈사람이 보이는 하루였어.")) {
