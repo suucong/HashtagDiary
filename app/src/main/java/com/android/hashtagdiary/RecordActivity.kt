@@ -386,7 +386,7 @@ class RecordActivity : AppCompatActivity() {
                     intentResult.putExtra("weather", "눈")
                 }
                 else if (chkbxForgot.isChecked) {
-                    intentResult.putExtra("weather", "날씨_기억_안남")
+                    intentResult.putExtra("weather", "날씨_기억안남")
                 }
                 else {}
 

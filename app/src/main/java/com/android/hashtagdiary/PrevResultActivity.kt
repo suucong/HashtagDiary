@@ -7,6 +7,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -23,6 +24,8 @@ class PrevResultActivity : AppCompatActivity() {
 
     lateinit var dbManager: DBManager
     lateinit var sqlitedb : SQLiteDatabase
+
+    lateinit var imgToday : ImageView
 
     lateinit var tvLine1_prev : TextView  // date
     lateinit var tvLine2_prev : TextView  // sleep
@@ -48,6 +51,8 @@ class PrevResultActivity : AppCompatActivity() {
 
         dbManager = DBManager(this, "diarybyday", null , 1)
 
+        imgToday = findViewById(R.id.imgToday_prev)
+
         tvLine1_prev = findViewById(R.id.tvLine1_prev)
         tvLine2_prev = findViewById(R.id.tvLine2_prev)
         tvLine3_prev = findViewById(R.id.tvLine3_prev)
@@ -70,17 +75,37 @@ class PrevResultActivity : AppCompatActivity() {
 
         while (cursor.moveToNext()) {
             if (cursor.getString(0).equals(datePrev)) {
-                tvLine1_prev.text = "오늘은 ${tvDate},"
-                tvLine2_prev.text = cursor.getString(1)
-                tvLine3_prev.text = cursor.getString(2)
-                tvLine4_prev.text = cursor.getString(3)
-                tvLine5_prev.text = cursor.getString(4)
-                tvLine6_prev.text = cursor.getString(5)
-                tvHashtag_prev.text = cursor.getString(6)
+                tvLine1_prev.text = "오늘은 ${tvDate},"  //date
+                tvLine2_prev.text = cursor.getString(1)  // sleep
+                tvLine3_prev.text = cursor.getString(2)  // weather
+                tvLine4_prev.text = cursor.getString(3)  // food
+                tvLine5_prev.text = cursor.getString(4)  // meet
+                tvLine6_prev.text = cursor.getString(5)  // mood
+                tvHashtag_prev.text = cursor.getString(6)  //hashtag
                 latitude = cursor.getDouble(7)
                 longtitude = cursor.getDouble(8)
+
                 break
             }
+        }
+
+        if (tvLine3_prev.equals("오늘의 날씨는 매우 맑고 햇살이 따사롭게 내리쬐는 날씨였다.")){
+            imgToday.setImageResource(R.drawable.img_result)
+        }
+        else if (tvLine3_prev.equals("오늘은 약간 흐려서, 눈이 편했고 바깥활동을 하기 좋은 날씨였다.")) {
+            imgToday.setImageResource(R.drawable.img_result)
+        }
+        else if (tvLine3_prev.equals("오늘은 꽤나 흐려서, 마치 곧 비가 올 것처럼 구름이 가득했다.")) {
+            imgToday.setImageResource(R.drawable.img_result)
+        }
+        else if (tvLine3_prev.equals("오늘은 비가 계속 내려서, 하루종일 어두컴컴하고 습도가 높은 날씨였다.")) {
+            imgToday.setImageResource(R.drawable.img_result)
+        }
+        else if (tvLine3_prev.equals("오늘은 눈이 내려서 온 세상이 하얗고, 곳곳에 눈사람이 보이는 하루였다.")) {
+            imgToday.setImageResource(R.drawable.img_result)
+        }
+        else if (tvLine3_prev.equals("오늘은 꽤나 정신없이 살았는지 날씨가 기억이 나질 않는다.")) {
+            imgToday.setImageResource(R.drawable.img_result)
         }
 
         mapView = MapView(this)
