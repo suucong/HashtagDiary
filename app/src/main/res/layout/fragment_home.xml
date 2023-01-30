@@ -9,22 +9,22 @@
 
     <Button
         android:id="@+id/btnTellStory"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="192dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_hard_round"
+        android:layout_gravity="right"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_hard_round_op"
         android:fontFamily="@font/uhbee_se_hyun"
-        android:text="+) 내 이야기를 들어볼래?"
-        android:textColor="@color/gray"
-        android:textSize="16dp" />
+        android:text="내 이야기를 들어볼래?"
+        android:textColor="#C34F4F4F"
+        android:textSize="14dp" />
 
     <ImageView
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:src = "@drawable/img_home"/>
 
     <Button

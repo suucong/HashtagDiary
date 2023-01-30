@@ -25,7 +25,7 @@
                 android:fontFamily="@font/uhbee_se_hyun"
                 android:gravity="center_vertical"
                 android:paddingLeft="16dp"
-                android:text="오늘 하루 기록"
+                android:text="하루 기록하기"
                 android:textColor="@color/Brown"
                 android:textSize="14dp"
                 tools:background="@color/Background_Dark" />

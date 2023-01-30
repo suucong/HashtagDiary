@@ -8,6 +8,8 @@
     android:background="@color/Background"
     tools:context=".ResultActivity">
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,6 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Button
+                android:layout_width="415dp"
+                android:layout_height="60dp"
+                android:background="@drawable/shadow"
+                android:fontFamily="@font/uhbee_se_hyun"
+                android:gravity="center_vertical"
+                android:paddingLeft="16dp"
+                android:text="편지 읽기"
+                android:textColor="@color/Brown"
+                android:textSize="14dp"
+                tools:background="@color/Background_Dark" />
 
             <ImageView
                 android:id="@+id/imgToday"
