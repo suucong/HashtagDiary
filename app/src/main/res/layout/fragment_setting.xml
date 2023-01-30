@@ -157,12 +157,12 @@
 
     <Button
         android:id="@+id/saveButton__"
-        android:layout_width="70dp"
+        android:layout_width="130dp"
         android:layout_height="35dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_hard_round"
         android:fontFamily="@font/uhbee_se_hyun"
-        android:text="저장"
+        android:text="닉네임 저장"
         android:textSize="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
