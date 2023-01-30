@@ -15,23 +15,17 @@ import androidx.annotation.RequiresApi
 import java.time.LocalDate
 
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     lateinit var btnRecord : Button
     lateinit var btnTellStory : Button
 
     lateinit var dbManager : DBManager
     lateinit var sqlitedb : SQLiteDatabase
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         btnRecord = view.findViewById(R.id.btnRecord)
@@ -63,6 +57,7 @@ class HomeFragment : Fragment() {
             cursor.close()
         }
 
+        // 버튼 누르면, 스토리텔링 액티비티로 전환
         btnTellStory.setOnClickListener {
             var intent = Intent(getActivity(), StoryActivity::class.java)
             startActivity(intent)

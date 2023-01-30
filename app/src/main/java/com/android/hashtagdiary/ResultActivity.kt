@@ -20,7 +20,6 @@ import androidx.core.content.ContextCompat
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapPoint
-import org.w3c.dom.Text
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -50,7 +49,6 @@ class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
-        val fragment_Diary = DiaryFragment()
 
         map_View = findViewById(R.id.map_View)
 
@@ -166,9 +164,11 @@ class ResultActivity : AppCompatActivity() {
             tvHashtag.text = "#$sleep #$weather #$mood #${edtFood}_${food}"
         }
 
+        // map_View 레이아웃에 지도 띄우기
         mapView = MapView(this)
         map_View.addView(mapView)
 
+        // 위치 권한이 허용되어 있어야지만, 사용자의 현재 위치를 받아올 수 있음
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -198,15 +198,18 @@ class ResultActivity : AppCompatActivity() {
 
             val lm: LocationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-            //위도 , 경도
+
+            //현재 위도, 경도 받아오기
             val uLatitude = userNowLocation?.latitude
             val uLongitude = userNowLocation?.longitude
 
+            // 변수에 위도, 경도 저장
             latitude = uLatitude!!
             longtitude = uLongitude!!
 
             val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
+            // 현재위치가 있는 화면으로 지도가 나오도록 함
             mapView.setMapCenterPoint(uNowPosition, true)
             mapView.setZoomLevel(1, true)
 
@@ -219,12 +222,14 @@ class ResultActivity : AppCompatActivity() {
             mapView.addPOIItem(marker)
         }
 
+        // 데이터 베이스에 결과화면 저장
         sqlitedb = dbManager.writableDatabase
         sqlitedb.execSQL("INSERT INTO diarybyday VALUES ('"+ date +"', '"+ tvLine2.text.toString() +"', '"
                 + tvLine3.text.toString() +"', '"+ tvLine4.text.toString() +"', '"+ tvLine5.text.toString() +"', '"
                 +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"', '"+ latitude +"', '"+ longtitude +"');")
         sqlitedb.close()
 
+        // 결과화면에서 다시 홈화면으로
         btnDiarytab.setOnClickListener {
             val intentNavi = Intent(this, NaviActivity::class.java)
             startActivity(intentNavi)
