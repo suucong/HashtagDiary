@@ -32,6 +32,7 @@ class PrevResultActivity : AppCompatActivity() {
     lateinit var tvLine6_prev : TextView  // mood
     lateinit var tvHashtag_prev : TextView  // hashtag
 
+    ///
     // 이전의 위도, 경도를 받을 변수 선언
     var latitude : Double = 0.0
     var longtitude : Double = 0.0
