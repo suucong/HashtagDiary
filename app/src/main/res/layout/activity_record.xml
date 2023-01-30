@@ -18,26 +18,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="415dp"
-                android:layout_height="60dp"
-                android:background="@drawable/shadow"
-                android:fontFamily="@font/uhbee_se_hyun"
-                android:gravity="center_vertical"
-                android:paddingLeft="16dp"
-                android:text="하루 기록하기"
-                android:textColor="@color/Brown"
-                android:textSize="14dp"
-                tools:background="@color/Background_Dark" />
-
             <TextView
                 android:id="@+id/tvToday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/uhbee_se_hyun"
-                android:text="오늘은 nnnn년 nn월 nn일 입니다."
+                android:text="오늘은 nnnn년 nn월 nn일"
                 android:textColor="@color/Brown"
                 android:textSize="20dp" />
 
@@ -55,11 +43,11 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/uhbee_se_hyun"
-                    android:text="오늘 잠은 편히 잤나요?"
+                    android:text="오늘 잠은 편하게 잤어?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/gray"
                     android:textSize="16dp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <RadioGroup
                     android:id="@+id/rgSleep"
@@ -99,7 +87,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/uhbee_se_hyun"
-                    android:text="오늘의 날씨는 어땠나요?"
+                    android:text="오늘 날씨는 어땠어?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/gray"
                     android:textSize="16dp" />
@@ -199,7 +187,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/uhbee_se_hyun"
-                    android:text="오늘의 기분은 어땠나요?"
+                    android:text="오늘 기분은 어땠어?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/gray"
                     android:textSize="16dp" />
@@ -305,7 +293,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="24dp"
                         android:fontFamily="@font/uhbee_se_hyun"
-                        android:text="오늘 먹은 음식은 어땠나요?"
+                        android:text="오늘 먹은 음식은 어땠어?"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/gray"
                         android:textSize="16dp" />
@@ -419,7 +407,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/uhbee_se_hyun"
-                    android:text="오늘 약속이 있었나요?"
+                    android:text="오늘 약속이 있었어?"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/gray"
                     android:textSize="16dp" />
@@ -465,7 +453,7 @@
                         android:layout_marginRight="30dp"
                         android:background="@drawable/edittext_round"
                         android:fontFamily="@font/uhbee_se_hyun"
-                        android:hint="누구와 만났나요?"
+                        android:hint="누구랑 만났어?"
                         android:paddingLeft="4dp"
                         android:textSize="15dp" />
 
@@ -478,7 +466,7 @@
                         android:layout_marginRight="30dp"
                         android:background="@drawable/edittext_round"
                         android:fontFamily="@font/uhbee_se_hyun"
-                        android:hint="어디서 만났나요?"
+                        android:hint="어디서 만났어?"
                         android:paddingLeft="4dp"
                         android:textSize="15dp" />
                 </LinearLayout>
