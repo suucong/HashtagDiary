@@ -34,8 +34,8 @@ class RecordActivity : AppCompatActivity() {
     lateinit var edtFood : EditText
     lateinit var edtMeetWho : EditText
     lateinit var edtMeetWhere : EditText
-    lateinit var btnNext : Button
-    lateinit var btnResult : Button
+    lateinit var btnNext : Button  // <다음> 버튼
+    lateinit var btnResult : Button  // <완료> 버튼
 
     // weather
     lateinit var chkbxSunny : CheckBox
@@ -125,7 +125,9 @@ class RecordActivity : AppCompatActivity() {
         var today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일"))
         tvToday.text = "오늘은 $today 입니다."
 
+        // <다음> 버튼 클릭 이벤트
         btnNext.setOnClickListener {
+            // 조건문의 요소가 보이지 않는 상태일 때 조건문 안의 요소의 visibility 변경
             if (ll_weather.isVisible == false && ll_mood.isVisible == false && ll_food.isVisible == false && ll_meet.isVisible == false) {
                 ll_weather.setVisibility(View.VISIBLE)
             }
@@ -138,7 +140,7 @@ class RecordActivity : AppCompatActivity() {
             else {
                 ll_meet.setVisibility(View.VISIBLE)
                 btnNext.setVisibility(View.GONE)
-                btnResult.setVisibility(View.VISIBLE)
+                btnResult.setVisibility(View.VISIBLE) // <다음> 버튼의 visibility 속성 변경 및 <완료> 버튼 속성 변경
             }
         }
 
@@ -334,7 +336,9 @@ class RecordActivity : AppCompatActivity() {
             }
         }
 
-        // 완료 버튼 클릭 이벤트
+        // <완료> 버튼 클릭 이벤트
+        // 각각 선택되지 않은 항복이 있을 경우 토스트 메시지
+        // 모든 항목이 선택/인력되었을 때 결과 액티비티로 전환
         btnResult.setOnClickListener {
             var intentResult = Intent(this, ResultActivity::class.java)
             intentResult.putExtra("tvToday", today)

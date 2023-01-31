@@ -19,8 +19,8 @@ class DiaryFragment : Fragment() {
     lateinit var dbManager: DBManager
     lateinit var sqlitedb : SQLiteDatabase
 
-    lateinit var calendarDiary : CalendarView
-    lateinit var btnPrevResult : Button
+    lateinit var calendarDiary : CalendarView  // 달력
+    lateinit var btnPrevResult : Button  // <선택한 날짜의 기록 보기> 버튼
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +39,10 @@ class DiaryFragment : Fragment() {
         calendarDiary = view.findViewById(R.id.calendarDiary)
         btnPrevResult = view.findViewById(R.id.btnPrevResult)
         
-        var dateFormat : DateFormat = SimpleDateFormat("yyyy-MM-dd")
+        var dateFormat : DateFormat = SimpleDateFormat("yyyy-MM-dd")  // 달력 일자의 포맷 별경
         var date : String = dateFormat.format(calendarDiary.date)
-        
+
+        // 달력에서 원하는 날짜 클릭할 때
         calendarDiary.setOnDateChangeListener { calendarDiary, year, month, dayOfMonth ->
             if (month in 0..8)
                 date = "${year}-0${month+1}-${dayOfMonth}"
@@ -51,11 +52,15 @@ class DiaryFragment : Fragment() {
 
         sqlitedb = dbManager.readableDatabase
         var cursor : Cursor
+        
+        // 커서가 DB의 date 데이터만 지정하도록 설정
         cursor = sqlitedb.rawQuery("SELECT date FROM diarybyday;", null)
 
-        btnPrevResult.setOnClickListener {
+        // <선택한 날짜의 기록 보기> 버튼 클릭 이벤트
+       btnPrevResult.setOnClickListener {
             var flag : String = "기록 없음"
             while (cursor.moveToNext()) {
+                // 선택한 날짜와 일치하는 날짜가 DB에 존재하면 이전 기록보기 액티비티로 전환
                 if (cursor.getString(0).equals(date)) {
                     var intentPrevResult = Intent(getActivity(), PrevResultActivity::class.java)
                     intentPrevResult.putExtra("date", date)
@@ -65,6 +70,7 @@ class DiaryFragment : Fragment() {
                 }
             }
 
+           // 선택한 날짜와 일치하는 날짜가 DB에 없을 때
             if (flag.equals("기록 없음")) {
                 Toast.makeText(requireContext(), "선택한 날짜에 기록된 일기가 없습니다.", Toast.LENGTH_SHORT).show()
             }

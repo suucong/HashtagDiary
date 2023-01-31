@@ -15,8 +15,8 @@ import androidx.annotation.RequiresApi
 import java.time.LocalDate
 
 class HomeFragment : Fragment() {
-    lateinit var btnRecord : Button
-    lateinit var btnTellStory : Button
+    lateinit var btnRecord : Button  // <오늘 편지 쓰러가기> 버튼
+    lateinit var btnTellStory : Button  // <내 이야기를 들어볼래?> 버튼
 
     lateinit var dbManager : DBManager
     lateinit var sqlitedb : SQLiteDatabase
@@ -40,9 +40,9 @@ class HomeFragment : Fragment() {
         btnRecord.setOnClickListener {
             cursor = sqlitedb.rawQuery("SELECT date FROM diarybyday;", null)
             while (cursor.moveToNext()) {
-                // 오늘 이미 일기를 기록하였을 때
+                // 오늘 이미 편지를 기록하였을 때
                 if (today.equals(cursor.getString(0).toString())) {
-                    Toast.makeText(requireContext(), "이미 오늘의 일기가 기록되었습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "이미 오늘의 편지가 기록되었습니다.", Toast.LENGTH_SHORT).show()
                     plag = "기록 완료"
                     break
                 }
@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            //  오늘 쓴 일기가 없을 때 기록 안함
+            //  오늘 쓴 일기가 없을 때
             if (plag.equals("기록 안함")) {
                 var intentRecord = Intent(getActivity(), RecordActivity::class.java)
                 startActivity(intentRecord)

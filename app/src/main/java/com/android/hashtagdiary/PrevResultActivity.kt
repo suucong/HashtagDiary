@@ -42,7 +42,7 @@ class PrevResultActivity : AppCompatActivity() {
     lateinit var map_View_prev : ConstraintLayout
     lateinit var mapView : MapView
 
-    lateinit var btnBack_prev : Button
+    lateinit var btnBack_prev : Button // <돌아가기> 버튼
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,6 +67,8 @@ class PrevResultActivity : AppCompatActivity() {
 
         sqlitedb = dbManager.readableDatabase
         var cursor : Cursor
+        
+        // 커서가 DB의 모든 값을 다 가리킬 수 있도록 설정
         cursor = sqlitedb.rawQuery("SELECT * FROM diarybyday;", null)
 
         var datePrev :String = intent.getStringExtra("date").toString()
@@ -74,6 +76,7 @@ class PrevResultActivity : AppCompatActivity() {
         var tvDate = dateParam.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일"))
 
         while (cursor.moveToNext()) {
+            // 이전에 선택된 날짜와 일치하는 날짜를 DB에서 찾아서 해당 행을 한 줄 씩 맞춰 작성
             if (cursor.getString(0).equals(datePrev)) {
                 tvLine1_prev.text = "오늘은 ${tvDate},"  //date
                 tvLine2_prev.text = cursor.getString(1)  // sleep
@@ -89,6 +92,7 @@ class PrevResultActivity : AppCompatActivity() {
             }
         }
 
+        // 문장에 따라 해당하는 이미지 변경
         if (tvLine3_prev.text.equals("바깥은 매우 맑고, 햇살이 따사롭게 내리쬐는 날씨였어.")){
             imgToday.setImageResource(R.drawable.img_result_sunny)
         }
@@ -116,7 +120,7 @@ class PrevResultActivity : AppCompatActivity() {
         mapView.setMapCenterPoint(uNowPosition, true)
         mapView.setZoomLevel(1, true)
 
-        // 현 위치에 마커 찍기
+        // 저장된 위치에 마커 찍기
         val marker = MapPOIItem()
         marker.itemName = "현 위치"
         marker.mapPoint =uNowPosition
@@ -124,6 +128,7 @@ class PrevResultActivity : AppCompatActivity() {
         marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
         mapView.addPOIItem(marker)
 
+        // <돌아가기> 버튼 클릭 이벤트
         btnBack_prev.setOnClickListener {
             var intentNavi = Intent(this, NaviActivity::class.java)
             startActivity(intentNavi)

@@ -10,8 +10,8 @@ import android.widget.EditText
 import android.widget.Toast
 
 class SettingFragment : Fragment() {
-    lateinit var nickName : EditText
-    lateinit var saveButton: Button
+    lateinit var nickName : EditText  // 닉네임 입력
+    lateinit var saveButton: Button  // <닉네임 저장> 버튼
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,7 @@ class SettingFragment : Fragment() {
 
         loadData()
 
+        // <닉네임 저장> 버튼 클릭 이벤트
         saveButton.setOnClickListener {
             saveData(nickName.text.toString())
             Toast.makeText(requireContext(), "닉네임이 저장되었습니다.", Toast.LENGTH_SHORT).show()
@@ -37,6 +38,7 @@ class SettingFragment : Fragment() {
         return view
     }
 
+    // 입력한 닉네임 저장 함수
     private fun saveData(nickname: String) {
         var pref = requireActivity().getPreferences(0)
         var editor = pref.edit()
@@ -44,6 +46,7 @@ class SettingFragment : Fragment() {
         editor.putString("KEY_NAME", nickName.text.toString()).apply()
     }
 
+    // 저장했던 닉네임 불러오는 함수
     private fun loadData() {
         var pref = requireActivity().getPreferences(0)
         var name = pref.getString("KEY_NAME", "")

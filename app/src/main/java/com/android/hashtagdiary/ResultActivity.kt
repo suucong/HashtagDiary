@@ -43,10 +43,10 @@ class ResultActivity : AppCompatActivity() {
     lateinit var mapView: MapView
     private val ACCESS_FINE_LOCATION = 1000
 
-    lateinit var btnDiarytab : Button
+    lateinit var btnDiarytab : Button  // <완료> 버튼
 
-    var latitude : Double = 0.0
-    var longtitude : Double = 0.0
+    var latitude : Double = 0.0  // 위도
+    var longtitude : Double = 0.0  // 경도
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,6 +94,7 @@ class ResultActivity : AppCompatActivity() {
         }
 
         // weather
+        // 이전 화면에서 선택한 날씨에 따라 다른 이미지로 설정
         if (weather.equals("맑음")) {
             imgToday.setImageResource(R.drawable.img_result_sunny)
             tvLine3.text = "바깥은 매우 맑고, 햇살이 따사롭게 내리쬐는 날씨였어."
@@ -240,6 +241,7 @@ class ResultActivity : AppCompatActivity() {
                 +tvLine6.text.toString() +"', '"+ tvHashtag.text.toString() +"', '"+ latitude +"', '"+ longtitude +"');")
         sqlitedb.close()
 
+        // <완료> 버튼 클릭 이벤트
         // 결과화면에서 다시 홈화면으로
         btnDiarytab.setOnClickListener {
             val intentNavi = Intent(this, NaviActivity::class.java)
