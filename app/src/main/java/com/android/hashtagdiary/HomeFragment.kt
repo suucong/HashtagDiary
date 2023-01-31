@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 cursor.close()
             }
 
-            plag = "기록 안함"
+            plag = "기록 안함"  //
         }
 
         // 버튼 누르면, 스토리텔링 액티비티로 전환
